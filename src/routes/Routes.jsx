@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import {Switch, Route } from "react-router-dom";
 import Home from '../pages/Home';
 import OddMovies from '../pages/OddMovies';
 import SeriesMovie from '../pages/SeriesMovie';
@@ -10,6 +10,7 @@ import Login from '../pages/Login';
 import ForgotPassword from '../pages/ForgotPassword';
 import PageMovieManager from "../components/PageMovieManager/index";
 import EditMovie from '../components/PageMovieManager/EditMovie';
+import  Info  from '../pages/Info';
 const Routes = () => {
     return (
         <Switch>
@@ -23,6 +24,7 @@ const Routes = () => {
             <Route path="/forgot" component={ForgotPassword} />
             <Route exact={true} path="/page-movie-manager" component={PageMovieManager} />
             <Route path="/page-movie-manager/:id" component={EditMovie} />
+            <Route path="/info/:slug" component={Info} />
         </Switch>
     )
 }

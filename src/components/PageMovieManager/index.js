@@ -38,7 +38,7 @@ const PageMovieManager = () => {
 
 
     return (
-        <div className=" all" >
+        <div className="all" >
             < Container >
                 <div className="pt-3">
                     <div className="d-flex flex-row" style={{ height: 40 }}>

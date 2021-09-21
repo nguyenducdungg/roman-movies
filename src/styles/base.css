@@ -10,15 +10,16 @@
 
 html {
     font-size: 16px;
-    color: var(--txt-white);
-    background-color: var(--main-bg);
-    @media only screen and (max-width: var(--mobile-width)) {
-        font-size: 12px;
-    }
+    color: #fff !important;
 }
 
 body {
     font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #06121e !important;
+    color: #fff !important;
 }
 
 ul {
@@ -26,39 +27,22 @@ ul {
 }
 
 a {
-    text-decoration: none;
-    color: unset;
+    text-decoration: none !important;
+    color: #428bca;
+    cursor: pointer;
 }
 
 a:hover {
-    color: var(--main-color);
+    color: #dcf836 !important;
 }
 
 img {
     max-width: 100%;
 }
 
-.container {
-    width: 100%;
-    max-width: 1620px;
-    padding: 0 50px;
-    margin: auto;
-
-}
 
 .main {
     padding: 48px 12px;
     min-height: 100vh;
-
-    /* @media only screen and (max-width: var(--tablet-width)) {
-        margin-top: calc({var(--header-tablet-height)} + 20px);
-    }
-
-    @media only screen and (max-width: var(--mobile-width)) {
-        margin-top: calc({var(--header-mobile-height)} + 10px);
-    } */
 }
 
-.grid {
-    display: grid;
-}

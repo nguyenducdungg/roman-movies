@@ -3,6 +3,5 @@
 @import "./components/Home.css";
 @import "./components/Login.css";
 @import "./components/Register.css";
-@import "./variables.css";
-@import "./mixins.css";
 @import "./base.css";
+@import "./components//Info.css"

@@ -43,7 +43,7 @@ const AllMovies = () => {
                             >
 
                                 <Link to="/allmovies/description" transition='glide-left'>
-                                    <img src={CosmicSin} width="200px" height="300px"/>
+                                    <img src={CosmicSin} width="200px" height="300px" alt="abc"/>
                                 </Link>
                             </Screen>
                         </Route>

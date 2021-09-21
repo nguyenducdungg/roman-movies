@@ -1,0 +1,16 @@
+.Header {
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 30;
+    font-size: 30px;
+    
+   
+}
+.Header::after {
+    
+    background-color: rgba(51,10,103,.93);
+
+    -webkit-transition: background-color .3s linear;
+    transition: background-color .3s linear;
+}

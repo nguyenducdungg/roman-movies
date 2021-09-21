@@ -1,0 +1,40 @@
+.filter-wrapper {
+    display: flex;
+    background-color: #091c2d;
+    margin: 20px -12px 12px -12px;
+    padding: 0 12px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    text-align: center;
+
+justify-content: center;
+}
+.select-field {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+} 
+label {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .select {
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    vertical-align: top;
+    height: 40px;
+  } 
+  select {
+    height: 100%;
+    width: 180px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 7px 40px 7px 10px;
+    position: relative;
+   
+    cursor: pointer;
+  }
+ 

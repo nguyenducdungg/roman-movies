@@ -1,0 +1,110 @@
+    
+
+.all {
+    background-color: #f0f2f5   ;
+    height: fit-content ;
+};
+
+
+
+.body-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+.content-table{
+    border-collapse: collapse;
+    margin:  25px 0;
+    font-size: 0,9em;  
+   width: 100%;
+    /* max-width: fit-content;  */
+    border-radius: 5px  5px  0  0;
+    overflow:  hidden;
+    box-shadow: 0  0 20px rgba(0, 0, 0, 0.15);
+}
+.content-table  thead tr {
+    background-color: #009879;
+    color: #ffff;
+    text-align: left;
+    font-weight: bold   ;
+}
+
+.content-table  th{
+    height:  60px   ;
+}   
+.content-table td{
+    height:100px;
+}
+.content-table  th,
+.content-table td {
+   
+    padding: 5px 15px  ;   
+    
+}
+
+.content-table td:hover {
+    cursor: pointer;
+    
+}
+
+.overflow-text {
+    display: -webkit-box;
+    max-height: 5rem    ;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: normal; 
+    width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+     transition: all 0.5s 0.2s ease-in-out;
+}       
+
+.overlink{  
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.overflow-text:hover{
+    display: block;
+    white-space: normal; 
+    padding-top:12px ;
+    max-height: 100px;
+    overflow-y: scroll; 
+}
+
+
+.overlink:focus:after,.overlink:hover:after{
+    content:attr(data-text);
+    overflow: visible;
+    text-overflow: inherit;
+    background: #fff;
+    position: absolute;
+    /* left:auto;
+    top:auto;
+    width: auto; */
+    max-width: 20rem;
+    border: 1px solid #eaebec;
+    padding: 0 .5rem;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.28);
+    white-space: normal;
+    word-wrap: break-word;
+    display:block;
+    color:black;
+    margin-top:-1.25rem;
+  }
+
+.content-table tbody  tr {
+    border-bottom   : 1px solid #dddddd    ;
+}
+
+.content-table tbody  tr:nth-of-type(even) {
+    background-color: #ffffffba   ; 
+}
+
+.content-table tbody  tr:last-of-type {
+    border-bottom: #0e1110  ; 
+}
+

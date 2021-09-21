@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
             <div className="container">
                 <div className="left">
-                    <img src="https://xemphimz.org/static/skin/logo-full.png" alt="" />
+                    <img src="https://xemphimz.org/static/skin/logo-full.png" alt="" className="image-nav"/>
                     <Search className="icon" />
                     <span>Phim Lẻ</span>
                     <span>Phim Bộ</span>

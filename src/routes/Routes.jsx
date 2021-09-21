@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from '../pages/Home';
 import OddMovies from '../pages/OddMovies';
 import SeriesMovie from '../pages/SeriesMovie';
@@ -10,7 +10,7 @@ import Login from '../pages/Login';
 import ForgotPassword from '../pages/ForgotPassword';
 import PageMovieManager from "../components/PageMovieManager/index";
 import EditMovie from '../components/PageMovieManager/EditMovie';
-import  Info  from '../pages/Info';
+import Info from '../pages/Info';
 const Routes = () => {
     return (
         <Switch>

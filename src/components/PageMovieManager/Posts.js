@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { Button, Modal, Alert } from "react-bootstrap";
 
-import { Link, } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "../axios";
 import { Loading } from "../Loading";
 import "./index.css";
 
 const Posts = ({ movies }) => {
 
-
-
-
     return (
-        <div className="body-page">
+        <div className="all-page-movie">
             <table className="content-table">
                 <thead  >
                     <tr>
@@ -40,7 +37,7 @@ const Posts = ({ movies }) => {
                             })}</td>
                             <td
                             >{movie.national} </td>
-                            <td> <Button className="m-1" variant="primary" as={Link} to={"/page-movie-manager/" + movie._id} >
+                            <td> <Button className="m-1" variant="primary" as={Link} to={"/" + movie._id} >
                                 Sửa
                             </Button>
                                 <Delete id={movie._id} />
@@ -57,10 +54,15 @@ export default Posts;
 
 
 
-
+// xóa phim
 function Delete(props) {
 
+    const history = useHistory();
+    const user = JSON.parse(localStorage.getItem("user"));
 
+    if (!user) {
+        history.push("/")
+    }
     const idMovieDelete = props.id;
 
     const [err, setErr] = useState(null);
@@ -75,7 +77,12 @@ function Delete(props) {
         setLoading(true);
         setIsSucceeded(false);
         try {
-            await axios.delete('/deletemovie/' + idMovieDelete);
+            await axios.delete('/deletemovie/' + idMovieDelete, {
+                headers: {
+                    'accept': 'application/json',
+                    "token": `${user.token}`
+                }
+            });
             setIsSucceeded(true);
 
         } catch (err) {
@@ -140,7 +147,7 @@ function Example() {
                 </Modal.Header>
                 <Modal.Body>Xóa phim thành công </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose} href="/page-movie-manager">
+                    <Button variant="primary" onClick={handleClose} href="/">
                         OK!
                     </Button>
                 </Modal.Footer>

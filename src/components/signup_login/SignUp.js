@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Card, Alert, Col, Container, Row } from "react-bootstrap";
+import { Form, Button, Card, Alert } from "react-bootstrap";
 import { Link, } from "react-router-dom";
 import axios from "../axios";
 import { Loading } from "../Loading";
@@ -75,55 +75,49 @@ export const SignUp = () => {
     };
 
     return (
-        <Container>
-            <Row>
-                <Col xs={12} lg={{ span: 6, offset: 3 }} xl={{ span: 4, offset: 4 }}>
-                    <Card >
-                        <Card.Header>Đăng ký</Card.Header>
-                        <Card.Body >
-                            {
-                                loading ? <Loading text="Signing up..."></Loading> : <>
-                                    {err && <Alert variant="danger" style={{ textAlign: "center" }}>{err}</Alert>}
-                                    {isSucceeded && <Alert variant="success">Đăng ký thành công!</Alert>}
-                                    <Form onSubmit={handleSubmit} >
 
-                                        <Form.Group className="mb-1" controlId="email">
-                                            <Form.Label>Email</Form.Label>
-                                            <Form.Control type="email" placeholder="Email..." name="email" onChange={handleChanges} value={values.email} />
-                                        </Form.Group>
+        <Card >
+            <Card.Header>Đăng ký</Card.Header>
+            <Card.Body >
+                {
+                    loading ? <Loading text="Signing up..."></Loading> : <>
+                        {err && <Alert variant="danger" style={{ textAlign: "center" }}>{err}</Alert>}
+                        {isSucceeded && <Alert variant="success">Đăng ký thành công!</Alert>}
+                        <Form onSubmit={handleSubmit} >
 
-                                        <Form.Group className="mb-1" controlId="formUsername">
-                                            <Form.Label>Username</Form.Label>
-                                            <Form.Control type="text" placeholder="Nhập Username ... " name="username" onChange={handleChanges} value={values.username} />
-                                        </Form.Group>
+                            <Form.Group className="mb-1" controlId="email">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control type="email" placeholder="Email..." name="email" onChange={handleChanges} value={values.email} />
+                            </Form.Group>
 
-                                        <Form.Group className="mb-1" controlId="Password">
-                                            <Form.Label>Mật khẩu</Form.Label>
-                                            <Form.Control type="password" placeholder="Nhập password ..." name="password" onChange={handleChanges} value={values.password} />
-                                        </Form.Group>
+                            <Form.Group className="mb-1" controlId="formUsername">
+                                <Form.Label>Username</Form.Label>
+                                <Form.Control type="text" placeholder="Nhập Username ... " name="username" onChange={handleChanges} value={values.username} />
+                            </Form.Group>
 
-                                        <Form.Group className="mb-1" controlId="confirmPassword">
-                                            <Form.Label>Xác nhận mật khẩu</Form.Label>
-                                            <Form.Control type="password" placeholder="Nhập lại mật khẩu ..." name="confirmPassword" onChange={handleChanges} value={values.confirmPassword} />
-                                        </Form.Group>
-                                        <Form.Group className="mb-1" controlId="phone">
-                                            <Form.Label>Số điện thoại</Form.Label>
-                                            <Form.Control type="text" placeholder="Nhập số điện thoại của bạn ...   " name="phone" onChange={handleChanges} value={values.phone} />
-                                        </Form.Group>
+                            <Form.Group className="mb-1" controlId="Password">
+                                <Form.Label>Mật khẩu</Form.Label>
+                                <Form.Control type="password" placeholder="Nhập password ..." name="password" onChange={handleChanges} value={values.password} />
+                            </Form.Group>
 
-                                        <div className=" mt-3   d-grid gap-2">
-                                            <Button variant="primary" type="submit" className="rounded-pill md-block">Đăng ký</Button>
-                                        </div>
-                                        <p className="mt-2 small text-center"> Bạn đã có tài khoản? <Link to="/login">Đăng nhập</Link></p>
-                                    </Form></>
-                            }
+                            <Form.Group className="mb-1" controlId="confirmPassword">
+                                <Form.Label>Xác nhận mật khẩu</Form.Label>
+                                <Form.Control type="password" placeholder="Nhập lại mật khẩu ..." name="confirmPassword" onChange={handleChanges} value={values.confirmPassword} />
+                            </Form.Group>
+                            <Form.Group className="mb-1" controlId="phone">
+                                <Form.Label>Số điện thoại</Form.Label>
+                                <Form.Control type="text" placeholder="Nhập số điện thoại của bạn ...   " name="phone" onChange={handleChanges} value={values.phone} />
+                            </Form.Group>
 
-                        </Card.Body>
-                    </Card>
+                            <div className=" mt-3   d-grid gap-2">
+                                <Button variant="primary" type="submit" className="rounded-pill md-block">Đăng ký</Button>
+                            </div>
+                            <p className="mt-2 small text-center"> Bạn đã có tài khoản? <Link to="/auth/sign-in">Đăng nhập</Link></p>
+                        </Form></>
+                }
 
-                </Col>
-            </Row>
-        </Container>
+            </Card.Body>
+        </Card>
 
 
     )

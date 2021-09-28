@@ -25,7 +25,7 @@ const Description = () => {
                 <div>
                     <div className="background" style={{ backgroundImage: `url(${oneMovie.imagebackgroundlink})` }}>
                     </div>
-                    <div className="container">
+                    <div className="container-info">
                         <div className="info-avata column">
                             <img src={oneMovie.imagelink} alt="avatar-movies" className="info-avata-images" />
                             <a href={oneMovie.movieLink}>

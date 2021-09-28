@@ -1,6 +1,7 @@
 import axios from "../axios";
-import React, { useState } from "react";
-import { Form, Button, Card, Alert, Container, Col, Row } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import authCtx from "../Context/context";
+import { Form, Button, Card, Alert } from "react-bootstrap";
 import { Loading } from "../Loading";
 import { Link, useHistory } from "react-router-dom";
 
@@ -11,6 +12,8 @@ export const SignIn = () => {
         email: '',
         password: ''
     });
+    const { setAuthUser } = useContext(authCtx)
+
     const handleChanges = (event) => {
         setValues({
             ...values,
@@ -30,48 +33,44 @@ export const SignIn = () => {
         }
         try {
             const res = await axios.post("/login", values);
-            if (res !== null) {
-                history.push("/");
-            }
-        } catch (err) {
+            localStorage.setItem("user", JSON.stringify(res.data));
+            setAuthUser(res.data);
+            history.push('/')
 
-            setErr(err.response.data);
+        } catch (err) {
+            setErr(err);
         } finally {
             setLoading(false);
         }
     }
 
     return (
-        <Container>
-            <Row>
-                <Col xs={12} lg={{ span: 6, offset: 3 }} xl={{ span: 4, offset: 4 }}>
-                    <Card>
-                        <Card.Header>Đăng nhập</Card.Header>
-                        <Card.Body>
-                            {loading ? <Loading text="Đang đăng nhập..." /> : <>
-                                {err && <Alert variant="danger" style={{ textAlign: "center" }}>{err}</Alert>}
-                                <Form onSubmit={handleSubmit}>
-                                    <Form.Group className="mb-3" controlId="email">
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" placeholder=" Email ..." name="email" value={values.email} onChange={handleChanges} />
 
-                                    </Form.Group>
-                                    <Form.Group className="mb-3" controlId="password">
-                                        <Form.Label>Mật khẩu</Form.Label>
-                                        <Form.Control type="password" placeholder=" Mật khẩu ..." name="password" value={values.password} onChange={handleChanges} />
-                                    </Form.Group>
-                                    <div className="d-grid gap-2">
-                                        <Button variant="primary" type="submit" className="rounded-pill md-block">Đăng nhập</Button>
-                                    </div>
-                                </Form>
-                                <p className="mt-2 small text-center">Chưa có tài khoản? <Link to="/register">Đăng ký</Link> Ngay</p>
-                            </>}
+        <Card>
+            <Card.Header>Đăng nhập</Card.Header>
+            <Card.Body>
+                {loading ? <Loading text="Đang đăng nhập..." /> : <>
+                    {err && <Alert variant="danger" style={{ textAlign: "center" }}>{err}</Alert>}
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3" controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" placeholder=" Email ..." name="email" value={values.email} onChange={handleChanges} />
 
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="password">
+                            <Form.Label>Mật khẩu</Form.Label>
+                            <Form.Control type="password" placeholder=" Mật khẩu ..." name="password" value={values.password} onChange={handleChanges} />
+                        </Form.Group>
+                        <div className="d-grid gap-2">
+                            <Button variant="primary" type="submit" className="rounded-pill md-block">Đăng nhập</Button>
+                        </div>
+                    </Form>
+                    <p className="mt-2 small text-center">Chưa có tài khoản? <Link to="/auth/sign-up">Đăng ký</Link> Ngay</p>
+                </>}
+
+            </Card.Body>
+        </Card>
+
 
 
     )

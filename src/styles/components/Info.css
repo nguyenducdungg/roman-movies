@@ -20,7 +20,7 @@
     flex-grow: 1;
     flex-shrink: 1;
 }
-.container {
+.container-info {
     margin: 0px 87px 0px 100px;
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -403,7 +403,7 @@ dd {
 /* Responsive */
 /* mobile */
 @media only screen and (max-width: 768px) {
-    .container {
+    .container-info-info {
         display: block;
         justify-content: center;
         align-items: center;

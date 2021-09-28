@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css'
-import Layout from './components/Layout'
+import './styles/index.css';
+import { BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Layout />
-  </React.StrictMode>,
+  <BrowserRouter> <Layout /></BrowserRouter>,
   document.getElementById('root')
 );
 

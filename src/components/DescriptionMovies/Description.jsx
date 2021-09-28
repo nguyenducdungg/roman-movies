@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from "react-bootstrap";
 import "../../assets/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css";
 import InfoApi from "../utils/InfoApi";
-
-const Description = () => {
+const Description = ({ params }) => {
     const [oneMovie, setOneMovie] = useState();
-
     useEffect(() => {
         const getMovie = async () => {
             try {
-                const response = await InfoApi.getMovie("6146a8fbab105d0016670f49")
+                const response = await InfoApi.getMovie(params.id)
                 const data = await response.data;
                 setOneMovie(data)
             } catch (error) {
@@ -17,25 +15,23 @@ const Description = () => {
             }
         }
         getMovie();
-    }, []);
+    }, [params.id]);
 
     return (
         <>
             {oneMovie ? (
-                <div>
+                <div className="description-movie">
                     <div className="background" style={{ backgroundImage: `url(${oneMovie.imagebackgroundlink})` }}>
                     </div>
-                    <div className="container">
+                    <div className="container-info">
                         <div className="info-avata column">
                             <img src={oneMovie.imagelink} alt="avatar-movies" className="info-avata-images" />
-                            <a href={oneMovie.movieLink}>
-                                <button className="btn-watch"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
-                            </a>
+                            <Movies value={oneMovie.movielink} />
                         </div>
                         <div className="info-description column">
                             <div className="info-description__main">
                                 <h1 className="item title">{oneMovie.moviename}</h1>
-                                <h2 className="item subtitle">Hiệp Sỹ Xanh <a href="#top">({oneMovie.year})</a></h2>
+                                <h2 className="item subtitle">{oneMovie.movienamevn} <a href="#top">({oneMovie.year})</a></h2>
                                 <div className="item">
                                     <span>{oneMovie.timeduration} <i className="fas fa-registered" title="Có thể có cảnh bạo lực, ngôn ngữ không hay"></i></span>
                                 </div>
@@ -53,8 +49,8 @@ const Description = () => {
                                     </div>
                                     <div className="right">
                                         {oneMovie.typemovie.map((e, index) => {
-                                            return <div className="right-item">
-                                                <button className="btn-right-item" key={index}>{e}</button>
+                                            return <div className="right-item" key={index} >
+                                                <button className="btn-right-item">{e}</button>
                                             </div>
                                         })}
 
@@ -91,7 +87,7 @@ const Description = () => {
                                 </h3>
                                 <div className="trailer item">
                                     <div className="trailer-clip active">
-                                        <App value={oneMovie.trailerlink} />
+                                        <Trailer value={oneMovie.trailerlink} />
 
                                     </div>
                                     <div className="trailer-clip" >
@@ -125,6 +121,7 @@ function MyVerticallyCenteredModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            animation={false}
         >
             <div className="modal-close" aria-label="close" onClick={props.onHide}>
             </div>
@@ -132,7 +129,7 @@ function MyVerticallyCenteredModal(props) {
                 <iframe
                     width="853"
                     height="480"
-                    src={`https://www.youtube.com/embed/${props.values}`}
+                    src={`https://www.youtube.com/embed/${props.values}?autoplay=1`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -143,13 +140,53 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
-function App({ value }) {
+function Trailer({ value }) {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
             <img src="//img.youtube.com/vi/D9b13sshpx0/mqdefault.jpg" onClick={() => setModalShow(true)} alt="trailer" className="trailer-img" />
 
             <MyVerticallyCenteredModal
+                values={value}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+        </>
+    );
+}
+function MyMovieModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            animation={false}
+        >
+            <div className="modal-close" aria-label="close" onClick={props.onHide}>
+            </div>
+            <div className="video-responsive">
+                <div className="modal-remove"></div>
+                <iframe
+                    width="100%"
+                    height="50%"
+                    src={`https://drive.google.com/file/d/${props.values}/preview`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Embedded google"
+                />
+                <div className="modal-remove-popup"></div>
+            </div>
+        </Modal>
+    );
+}
+function Movies({ value }) {
+    const [modalShow, setModalShow] = React.useState(false);
+    return (
+        <>
+            <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
+            <MyMovieModal
                 values={value}
                 show={modalShow}
                 onHide={() => setModalShow(false)}

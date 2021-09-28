@@ -8,7 +8,7 @@ export default function Featured() {
     useEffect(() => {
         const getMovie = async () => {
             try {
-                const response = await InfoApi.getMovie("6146a8fbab105d0016670f49")
+                const response = await InfoApi.getMovie("614c86404078ae0016fc8c44")
                 const data = await response.data;
                 setOneMovie(data)
             } catch (error) {
@@ -22,6 +22,7 @@ export default function Featured() {
             {oneMovie ? (
                 <div className="featured">
                     <img
+                        className="featured-img"
                         src={oneMovie.imagebackgroundlink}
                         alt=""
                     />
@@ -31,7 +32,7 @@ export default function Featured() {
                             {oneMovie.description}
                         </span>
                         <div className="buttons">
-                            <button className="play">
+                            <button className="play-home">
                                 <PlayArrow />
                                 <span>Xem Phim</span>
                             </button>

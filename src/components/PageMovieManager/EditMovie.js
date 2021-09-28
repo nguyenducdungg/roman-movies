@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Modal, Form, Container, Row, Col, Alert, Nav, Navbar } from "react-bootstrap";
+import { Card, Button, Modal, Form, Container, Row, Col, Alert, Nav } from "react-bootstrap";
 import { useParams, Link } from 'react-router-dom';
 import axios from "../axios";
 import GenreSelect from "./genreSelect";
@@ -109,9 +109,8 @@ const EditMovie = () => {
     return (
         <div className=" all  d-flex flex-column" onSubmit={handleSubmit}>
             <Container className="  mt-3 d-flex justify-content-between" >
-                <Navbar.Brand as={Link} to="/"><img src="/logo-full.png" alt="" style={{ height: 40 }} /></Navbar.Brand>
                 <Nav >
-                    <Link as={Link} to="/page-movie-manager">admin  </Link>
+                    <Link as={Link} to="/page-movie-manager">Back Admin  </Link>
                 </Nav>
             </Container>
             {loading ? <Loading text="Đang thay đổi....."></Loading> : <>

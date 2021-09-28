@@ -1,48 +1,57 @@
-.navbar{
+.header {
     color: white;
-    font-size: 14px;
-    position: fixed;
     top: 0;
+    padding: 0;
     width: 100%;
     z-index: 999;
-    background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3) 50%);
+    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+    background-color: #06121e;
 }
-.navbar.scrolled{
-    background-color: #fff;
+.navbar-link:hover {
+    background-color: #102c48;
+    color: #428bca;
 }
-.navbar .container{
+.header.scrolled {
+    background-color: rgba(51,10,103,.93);
+    position: fixed;
+    padding : 0
+}
+.header .navbar-container {
     padding: 0px 50px;
     display: flex;
     height: 70px;
     align-items: center;
     justify-content: space-between;
 }
-.container .image-nav{
+.navbar-container .image-nav {
     height: 40px;
     margin-right: 40px;
     cursor: pointer;
 }
-.left{
-    display: flex;
-    align-items: center;
+.navbar-start {
+    color: #fff;
+    display: block;
+    line-height: 1.5;
+    padding: .5rem .75rem;
+    position: relative;
 }
-.icon{
+.icon {
     margin: 0 15px;
     cursor: pointer;
 }
-span{
+span {
     margin-right: 20px;
     cursor: pointer;
 }
-.right{
+.navbar-right {
     align-items: center;
     display: flex;
 }
-.loginButton{
-    background-color: lightcoral;
+.loginButton {
+    background-color: #cf2122;
     cursor: pointer;
-    border: none;
-    padding: 10px;
-    color: white;
+    border-color: transparent;
+    padding: 7px;
+    color: #fff;
     border-radius: 5px;
 }

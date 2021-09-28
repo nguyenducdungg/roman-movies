@@ -16,7 +16,7 @@ const Routes = () => {
         <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/oddmovies" component={OddMovies} />
-            <Route path="/seriesmovie" component={SeriesMovie} />
+            <Route path="/type/movie" component={SeriesMovie} />
             <Route path="/allmovies" component={AllMovies} />
             <Route path="/contact" component={Contact} />
             <Route path="/register" component={Register} />
@@ -24,7 +24,7 @@ const Routes = () => {
             <Route path="/forgot" component={ForgotPassword} />
             <Route exact={true} path="/page-movie-manager" component={PageMovieManager} />
             <Route path="/page-movie-manager/:id" component={EditMovie} />
-            <Route path="/info/:slug" component={Info} />
+            <Route path="/info/:slug/:id" component={Info} />
         </Switch>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../signup_login/utils/axios";
+import axios from "../axios";
 
 const GenreFilterSelect = () => {
     const [genres, SetGenre] = useState([]);

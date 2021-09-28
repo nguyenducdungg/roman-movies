@@ -1,3 +1,21 @@
+.description-movie {
+    background-color: #06121e;
+    color: #fff;
+}
+.modal-remove {
+    width: 640px;
+    height: 480px;
+    position: relative;
+}
+.modal-remove-popup {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    opacity: 100%;
+    background-color: #070707;
+}
 .background {
     background-image: url(https://image.tmdb.org/t/p/original/eP07auW0baxhbflms6obNfRB0NG.jpg);
     height: 600px;
@@ -20,7 +38,7 @@
     flex-grow: 1;
     flex-shrink: 1;
 }
-.container {
+.container-info {
     margin: 0px 87px 0px 100px;
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -403,7 +421,7 @@ dd {
 /* Responsive */
 /* mobile */
 @media only screen and (max-width: 768px) {
-    .container {
+    .container-info {
         display: block;
         justify-content: center;
         align-items: center;

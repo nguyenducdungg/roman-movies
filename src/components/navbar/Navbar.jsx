@@ -1,6 +1,8 @@
 import { Search } from "@material-ui/icons"
+import { Link } from "react-router-dom";
 import "./navbar.css"
 import { useState } from "react";
+import logo from "../../assets/images/logo-full.png"
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     window.onscroll = () => {
@@ -8,19 +10,23 @@ const Navbar = () => {
         return () => (window.onscroll = null);
     };
     return (
-        <div className={isScrolled ? "navbar scrolled" : "navbar"}>
-            <div className="container">
-                <div className="left">
-                    <img src="https://xemphimz.org/static/skin/logo-full.png" alt="" className="image-nav"/>
+        <div className={isScrolled ? "header scrolled" : "header"}>
+            <div className="navbar-container">
+                <div className="navbar-start">
+                    <Link to="/">
+                        <img src={logo} alt="" className="image-nav" />
+                    </Link>
                     <Search className="icon" />
-                    <span>Phim Lẻ</span>
-                    <span>Phim Bộ</span>
-                    <span>Series</span>
-                    <span>Tất Cả Phim</span>
+                    <span className="navbar-link">Phim Lẻ</span>
+                    <span className="navbar-link">Phim Bộ</span>
+                    <span className="navbar-link">Tất Cả Phim</span>
+                    <span className="navbar-link">Contact</span>
                 </div>
 
-                <div className="right">
-                    <button className="loginButton">Login</button>
+                <div className="navbar-end">
+                    <Link to="/login">
+                        <button className="loginButton">Đăng nhập</button>
+                    </Link>
                 </div>
             </div>
         </div>

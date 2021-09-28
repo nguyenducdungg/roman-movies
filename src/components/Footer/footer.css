@@ -1,14 +1,43 @@
-.footer{
-    width: 100%;
-    height: 60vh;
-    margin-top: 80px;
+.footer-information {
+    background-color: #fafafa;
+    padding: 3rem 4.5rem 6rem;
+    display: block;
     background: url("https://xemphim.club/static/skin/footer-bg.jpg");
 }
-.footerTitle{
-    color: white;
-    text-shadow: 0 0 20px rgba(0,0,0,0.5);
-    height: 40px;
-    line-height: 40px;
-    font-size: 15px;
-
+.footer-title {
+    margin: 0 60px;
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+}
+.footer-h3 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+}
+.footer-ul {
+    margin: 2em;
+    list-style-type: circle;
+    color: #b5b5b5 !important;
+}
+.footer-li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.footer-contact {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-btn-fb {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3273dc;
+    color: #fff;
+    border-radius: 10px;
+}
+.footer-btn-fb:hover {
+    opacity: 0.7;
 }

@@ -1,15 +1,17 @@
 import React from 'react'
 import Helmet from '../components/Helmet'
 import Featured from '../components/featured/Featured'
-import Slider from '../components/slider/Slider'
+import Slider from '../components/Movie/Movie'
+
 const Home = () => {
     return (
-        <Helmet title="Home">
-            <Featured />
-            <Slider />
-            <Slider />
-            <Slider />
-        </Helmet>
+        <div className="home-pages">
+            <Helmet title="Home">
+                <Featured />
+                
+                <Slider />
+            </Helmet>
+        </div>
     )
 }
 

@@ -41,3 +41,23 @@
 .footer-btn-fb:hover {
     opacity: 0.7;
 }
+
+/* Reponsive */
+@media only screen and (max-width: 768px) {
+    .footer-information {
+        padding: 3rem 1.5rem 6rem;
+    }
+    .footer-h3 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .footer-ul {
+        margin: 1em;
+    }
+    .footer-btn-fb {
+        padding: 5px;
+    }
+}
+@media only screen and (min-width: 1024) and (max-width: 1066) {
+    
+}

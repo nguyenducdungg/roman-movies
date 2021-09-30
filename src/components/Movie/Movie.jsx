@@ -1,10 +1,8 @@
 import "./Movie.css"
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-// import Carousel from "react-elastic-carousel";
-// import Card from "../card/Card";
 import axios from "../axios/axios";
-import FilterMovie from '../Soft/FilterMovie'
+import FilterMovie from '../Sort/FilterMovie'
 
 export default function Slider() {
     const [movies, setMovies] = useState([]);

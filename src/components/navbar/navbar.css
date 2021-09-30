@@ -10,6 +10,7 @@
 .navbar-link:hover {
     background-color: #102c48;
     color: #428bca;
+    height: 100%;
 }
 .header.scrolled {
     background-color: rgba(51,10,103,.93);

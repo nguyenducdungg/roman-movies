@@ -1,19 +1,19 @@
     
 
-.all {
+.all-page-movie {
     background-color: #f0f2f5   ;
     height: fit-content ;
 };
 
 
 
-.body-page{
+.body-page-manager{
     display: flex;
     align-items: center;
     justify-content: center;
     height: fit-content;
 }
-.content-table{
+.content-table-page-manager{
     border-collapse: collapse;
     margin:  25px 0;
     font-size: 0,9em;  

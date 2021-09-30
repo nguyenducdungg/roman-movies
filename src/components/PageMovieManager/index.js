@@ -25,7 +25,7 @@ const PageMovieManager = () => {
 
         };
         fetchAllMovie();
-    }, []);
+    }, [setAllMovie]);
 
     const indexOFLastMovie = currentPage * moviesPerPage;
     const indexOfFirstMovie = indexOFLastMovie - moviesPerPage;
@@ -37,7 +37,7 @@ const PageMovieManager = () => {
 
 
     return (
-        <div className="all" >
+        <div className="all-page-movie" >
             < Container >
                 <div className="pt-3">
                     <div className="d-flex flex-row" style={{ height: 40 }}>
@@ -69,19 +69,27 @@ export default PageMovieManager;
 // Modal Thêm phim mới
 function MyVerticallyCenteredModal(props) {
 
+    const token = JSON.parse(localStorage.getItem("user")).token;
+    console.log(token)
     const [err, setErr] = useState(null);
     const [isSucceeded, setIsSucceeded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({
         moviename: '',
+        movienamevn: '',
         trailerlink: '',
         movielink: '',
         imagelink: '',
-        image: '',
+        image: undefined,
+        imagebackground: undefined,
+        timeduration: '',
         typemovie: '',
         national: '',
         actors: '',
-        description: ''
+        description: '',
+        year: '',
+
+        director: "",
     });
     const handleChanges = (event) => {
         setValues({
@@ -93,9 +101,10 @@ function MyVerticallyCenteredModal(props) {
     const errMovieName = "Tên phim không được để trống!";
     const errMovieLink = "Link phim không được để trống!";
     const errImage = "Vui lòng chọn ảnh Phim";
+    const errImagebackground = "Vui lòng chọn ảnh bìa Phim";
 
     const handleSubmit = async (event) => {
-        console.log(values)
+
         event.preventDefault();
         setErr(null);
         setLoading(true);
@@ -109,7 +118,13 @@ function MyVerticallyCenteredModal(props) {
         formData.append("actors", values.actors);
         formData.append("typemovie", values.typemovie);
         formData.append("image", values.image);
+        formData.append("imagebackground", values.imagebackground);
+        formData.append("timeduration", values.timeduration);
+        formData.append("year", values.year);
+        formData.append("movienamevn", values.movienamevn);
         formData.append("imagelink", values.imagelink);
+        formData.append("director", values.director);
+        console.log(formData)
         if (!values.moviename) {
             setErr(errMovieName)
             return setLoading(false);
@@ -122,28 +137,40 @@ function MyVerticallyCenteredModal(props) {
             setErr(errImage)
             return setLoading(false);
         }
+        if (!values.imagebackground) {
+            setErr(errImagebackground)
+            return setLoading(false);
+        }
         try {
             await axios.post("/createmovie", formData, {
                 headers: {
+                    "accept": "application/json",
                     "Content-Type": "multipart/form-data",
+                    "token": `${token}`
                 }
             });
             setIsSucceeded(true);
 
         } catch (err) {
-
-            setErr(err.response.data);
+            setErr("Tải phim lên không thành công!");
         } finally {
             setLoading(false)
         }
 
     };
-    const fileInputOnChange = (event) => {
+    const fileInputOnChangeImage = (event) => {
         setValues({
             ...values,
             image: event.target.files[0]
         })
     }
+    const fileInputOnChangeImagebackground
+        = (event) => {
+            setValues({
+                ...values,
+                imagebackground: event.target.files[0]
+            })
+        }
     const inputTypemovieOnchange = (event) => {
         setValues({
             ...values,
@@ -175,15 +202,33 @@ function MyVerticallyCenteredModal(props) {
                         <Form.Group className="mb-3" controlId="moviename">
                             <Form.Control type="text" placeholder="Tên phim" name="moviename" value={values.moviename} onChange={handleChanges} />
                         </Form.Group>
+                        <Form.Group className="mb-3" controlId="movienamevn">
+                            <Form.Control type="text" placeholder="Tên phim dạng Tiếng Việt" name="movienamevn" value={values.movienamevn} onChange={handleChanges} />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="trailerlink">
                             <Form.Control type="text" placeholder="Link trailer" name="trailerlink" value={values.trailerlink} onChange={handleChanges} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="movielink">
                             <Form.Control type="text" placeholder="Link phim" name="movielink" value={values.movielink} onChange={handleChanges} />
                         </Form.Group>
-                        <div>
-                            <input type="file" className="border mb-3" onChange={fileInputOnChange} />
-                        </div>
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <div>
+                                        <div>Ảnh phim</div>
+                                        <input type="file" className="border mb-3" onChange={fileInputOnChangeImage} />
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div>
+                                        <div>Ảnh bìa phim</div>
+                                        <input type="file" className="border mb-3" onChange={fileInputOnChangeImagebackground} />
+                                    </div>
+                                </Col>
+
+                            </Row>
+                        </Container>
+
                         <Container className="mb-3">
                             <Row>
                                 <Col>
@@ -194,14 +239,22 @@ function MyVerticallyCenteredModal(props) {
                                     <select name="national" value={values.national} onChange={handleChanges} >
                                         <NationalSelect />
                                     </select>
-
                                 </Form.Group></Col>
                             </Row>
                         </Container>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="director">
+                            <Form.Control type="text" placeholder="Đạo diễn" name="director" value={values.director} onChange={handleChanges} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="year">
+                            <Form.Control type="text" placeholder="Năm sản xuất" name="year" value={values.year} onChange={handleChanges} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="timeduration">
+                            <Form.Control type="text" placeholder="Thời lượng phim" name="timeduration" value={values.timeduration} onChange={handleChanges} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="actors">
                             <Form.Control type="text" placeholder="Diễn viên" name="actors" value={values.actors} onChange={handleChanges} />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Group className="mb-3" controlId="description">
                             <Form.Control type="text" placeholder="mô tả" name="description" value={values.description} onChange={handleChanges} as="textarea" rows={3} />
                         </Form.Group>
                         <div className="w-100 d-flex justify-content-center">
@@ -235,7 +288,7 @@ function Example() {
                 </Modal.Header>
                 <Modal.Body>Thêm phim mới thành công!</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose} href="/page-movie-manager">
+                    <Button variant="primary" onClick={handleClose} href="/">
                         OK!
                     </Button>
                 </Modal.Footer>

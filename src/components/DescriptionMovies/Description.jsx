@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import "../../assets/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css";
 import InfoApi from "../utils/InfoApi";
 const Description = ({ params }) => {
@@ -16,6 +18,9 @@ const Description = ({ params }) => {
         }
         getMovie();
     }, [params.id]);
+    const createNotification = () => {
+        NotificationManager.warning('Máy bạn đã bị hacker tấn công, vui lòng donate cho chúng tôi để bảo mật kịp thời', 'Thông báo khẩn cấp', 5000);
+    }
 
     return (
         <>
@@ -26,7 +31,10 @@ const Description = ({ params }) => {
                     <div className="container-info">
                         <div className="info-avata column">
                             <img src={oneMovie.imagelink} alt="avatar-movies" className="info-avata-images" />
-                            <Movies value={oneMovie.movielink} />
+                            {/* <Movies value={oneMovie.movielink} /> */}
+                            <Link to={`/watchmovie/${params.id}`}>
+                                <button className="btn-watch" alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
+                            </Link>
                         </div>
                         <div className="info-description column">
                             <div className="info-description__main">
@@ -40,10 +48,10 @@ const Description = ({ params }) => {
                                 </div>
                                 <div className="genres item">
                                     <div className="left">
-                                        <div className="left-item">
+                                        <div className="left-item" onClick={() => createNotification()} >
                                             <button className="btn-fb"><i className="fab fa-facebook-square"></i> Facebook</button>
                                         </div>
-                                        <div className="left-item">
+                                        <div className="left-item" onClick={() => createNotification()} >
                                             <button className="btn-share"><i className="fas fa-plus"></i> Bộ sưu tập</button>
                                         </div>
                                     </div>
@@ -100,14 +108,14 @@ const Description = ({ params }) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             ) : (
                 <>
                     <div className="loading"></div>
                 </>
-            )
-            }
+            )}
+            <NotificationContainer />
         </>
 
     )
@@ -185,7 +193,9 @@ function Movies({ value }) {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
-            <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
+            <Link to='/watchmovie'>
+                <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
+            </Link>
             <MyMovieModal
                 values={value}
                 show={modalShow}

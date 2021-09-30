@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Routes from '../routes/Routes';
 import Footer from './Footer/Footer';
-import Header from './Navbar/Navbar';
+import Navbar from '../components/navbar/Navbar';
 import AuthUser from './Context/context';
 import RouterAdmin from '../routes/RouterAdmin'
 
@@ -22,7 +22,7 @@ const Layout = (props) => {
                     <Route
                         render={(props) => (
                             <>
-                                <Header />
+                                <Navbar />
                                 <RouterAdmin />
                             </>
                         )}
@@ -33,7 +33,7 @@ const Layout = (props) => {
                     <Route
                         render={(props) => (
                             <>
-                                <Header />
+                                <Navbar />
                                 <Routes />
                                 <Footer />
 

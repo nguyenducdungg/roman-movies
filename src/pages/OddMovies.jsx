@@ -23,7 +23,7 @@ const OddMovies = () => {
                             <div className="donate-content-left">
                                 <ul>
                                     <li>1. Mở app Momo và <b>Quét mã</b> bên dưới</li>
-                                    <li>2. Nhập số tiền bạn muốn chuyển, <b className="donate-content-warning">tối thiểu là 10.000đ mỗi lần chuyển</b>. Nếu bạn chuyển ít hơn hệ thống sẽ coi là spam và không ghi nhận giao dịch => bạn mất tiền!</li>
+                                    <li>2. Nhập số tiền bạn muốn chuyển, <b className="donate-content-warning">tối thiểu là 10.000đ mỗi lần chuyển</b>. Nếu bạn chuyển ít hơn hệ thống sẽ coi là spam và không ghi nhận giao dịch , bạn mất tiền!</li>
                                     <li>3. <b className="donate-content-warning">Nhập lời nhắn</b> kèm theo là email tài khoản bạn (lời nhắn kèm theo lệnh chuyển tiền của Momo, chứ không phải chuyển tiền xong mới nhắn qua chat):</li>
                                     <span className="content-bank">{username.email}</span>
                                 </ul>

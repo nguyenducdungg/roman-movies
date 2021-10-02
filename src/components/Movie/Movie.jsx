@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import axios from "../axios/axios";
 import FilterMovie from '../Sort/FilterMovie'
 
-export default function Slider() {
+export default function Movie() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -43,6 +43,11 @@ export default function Slider() {
                             )
                         })}
                     </div>
+                    <h2 className="title-home">
+                        <span className="title-home-type">Phim Bộ</span>
+                        <Link to="/type/show"><span className="title-home-watchAll">Xem tất cả <i className="fas fa-caret-right"></i></span></Link>
+                    </h2>
+                    <div div className="text-home-warning">Hiện tại team đang vẫn đang phát triển, để bạn có thể xem được hết các tập vui lòng sử dụng chức năng tìm kiếm hoặc lọc để có thể xem hết được các phần</div>
                 </div>
             ) : (
                 <>

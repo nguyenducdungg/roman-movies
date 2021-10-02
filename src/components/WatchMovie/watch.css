@@ -1,9 +1,9 @@
-.aaaa {
+/* .aaaa {
     margin-bottom: 700px;
     padding: 0px;
     overflow: hidden;
-}
-.cccc {
+} */
+/* .cccc {
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -14,5 +14,59 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 999999;
+} */
+.video-responsive-movie {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.iframeMovie {
+    left: 0;
+    top: 0;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+}
+.watchmovie-title {
+    color: #fff
+}
+
+
+/* comment */
+
+.comment-session {
+    max-width: 600px;
+    margin-top: 1em;
+    border-top: 1px solid #4a4a4a;
+    text-align: center;
+}
+.text-comment {
+    padding: 0.5em 0.5em;
+    color: #7a7a7a;
+    font-weight: 400;
+}
+
+.input-form {
+    margin-bottom: 0.75rem;
+}
+.textarea {
+    height: auto;
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    padding: calc(0.75em - 1px);
+    resize: vertical;
+    width: 100%;
+}
+.btn-send {
+    text-align: right;
+}
+.btn-send-comment {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
 }

@@ -1,4 +1,3 @@
-import { InfoOutlined, PlayArrow } from "@material-ui/icons"
 import "./featured.css"
 import InfoApi from "../axios/InfoApi";
 import React, { useState, useEffect } from "react";
@@ -8,7 +7,7 @@ export default function Featured() {
     useEffect(() => {
         const getMovie = async () => {
             try {
-                const response = await InfoApi.getMovie("614c86404078ae0016fc8c44")
+                const response = await InfoApi.getMovie("6154ac156b8a8f00163e6067")
                 const data = await response.data;
                 setOneMovie(data)
             } catch (error) {
@@ -33,11 +32,11 @@ export default function Featured() {
                         </span>
                         <div className="buttons">
                             <button className="play-home">
-                                <PlayArrow />
+                                <i className="fas fa-play fa-play-featured"></i>
                                 <span>Xem Phim</span>
                             </button>
                             <button className="more">
-                                <InfoOutlined />
+                                <i className="fas fa-exclamation-circle"></i>
                                 <span>Trailer</span>
                             </button>
                         </div>

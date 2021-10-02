@@ -3,4 +3,5 @@
 @import "./components/WatchMovie.css";
 @import "./components/Register.css";
 @import "./base.css";
-@import "./components/Info.css"
+@import "./components/Info.css";
+@import "./components/OddMovies.css"

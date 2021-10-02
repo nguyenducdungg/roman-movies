@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <div className="footer-information">
             <div className="footer-title">
-                <h3 className="footer-h3">Phim chất lượng cao online của XemPhim khác gì so với các trang phim khác?
+                <h3 className="footer-h3">Phim chất lượng cao online của <a href="#top">RomanMovie</a> khác gì so với các trang phim khác?
                 </h3>
                 <ul className="footer-ul">
                     <li className="footer-li">Là phim bluray (reencoded), có độ phân giải thấp nhất là Full HD (1080p), trong khi hầu hết các trang phim khác chỉ có tới độ phân giải HD (720p) là cao nhất</li>

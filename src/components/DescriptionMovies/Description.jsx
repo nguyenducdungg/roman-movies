@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import "../../assets/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css";
 import InfoApi from "../utils/InfoApi";
+import RatedAverage from '../Rate/RateAverage/RatedAverage'
+import trailermovie from '../../assets/images/trailermovie.jpg';
 const Description = ({ params }) => {
     const [oneMovie, setOneMovie] = useState();
     useEffect(() => {
@@ -21,7 +22,7 @@ const Description = ({ params }) => {
     const createNotification = () => {
         NotificationManager.warning('Máy bạn đã bị hacker tấn công, vui lòng donate cho chúng tôi để bảo mật kịp thời', 'Thông báo khẩn cấp', 5000);
     }
-
+    console.log(params.id);
     return (
         <>
             {oneMovie ? (
@@ -44,7 +45,7 @@ const Description = ({ params }) => {
                                     <span>{oneMovie.timeduration} <i className="fas fa-registered" title="Có thể có cảnh bạo lực, ngôn ngữ không hay"></i></span>
                                 </div>
                                 <div className="item">
-                                    <span><i className="fab fa-imdb"></i>7.2</span>
+                                    <span><RatedAverage id={params.id} /></span>
                                 </div>
                                 <div className="genres item">
                                     <div className="left">
@@ -68,14 +69,14 @@ const Description = ({ params }) => {
                                 <dl className="item info-general">
                                     <dt>ĐẠO DIỄN</dt>
                                     <dd className="csv">
-                                        <a href="#top">David Lowery</a>
+                                        <a href="#top">{oneMovie.director}</a>
                                     </dd>
                                     <dt>QUỐC GIA</dt>
                                     <dd className="csv">
                                         <a href="#top">{oneMovie.national}</a>
                                     </dd>
                                     <dt>KHỞI CHIẾU</dt>
-                                    <dd><a href="#top">{oneMovie.timeduration}</a></dd>
+                                    <dd><a href="#top">{oneMovie.year}</a></dd>
                                 </dl>
                                 <div className="description item">{oneMovie.description}</div>
                                 <h3 className="item">
@@ -98,12 +99,12 @@ const Description = ({ params }) => {
                                         <Trailer value={oneMovie.trailerlink} />
 
                                     </div>
-                                    <div className="trailer-clip" >
+                                    {/* <div className="trailer-clip" >
                                         <img src="//img.youtube.com/vi/D9b13sshpx0/mqdefault.jpg" alt="trailer" className="trailer-img" />
                                     </div>
                                     <div className="trailer-clip" >
                                         <img src="//img.youtube.com/vi/sS6ksY8xWCY/mqdefault.jpg" alt="trailer" className="trailer-img" />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -142,6 +143,7 @@ function MyVerticallyCenteredModal(props) {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title="Embedded youtube"
+                    className="iframeYoutube"
                 />
             </div>
         </Modal>
@@ -152,7 +154,7 @@ function Trailer({ value }) {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
-            <img src="//img.youtube.com/vi/D9b13sshpx0/mqdefault.jpg" onClick={() => setModalShow(true)} alt="trailer" className="trailer-img" />
+            <img src={trailermovie} onClick={() => setModalShow(true)} alt="trailer" className="trailer-img" />
 
             <MyVerticallyCenteredModal
                 values={value}
@@ -162,45 +164,43 @@ function Trailer({ value }) {
         </>
     );
 }
-function MyMovieModal(props) {
-    return (
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            animation={false}
-        >
-            <div className="modal-close" aria-label="close" onClick={props.onHide}>
-            </div>
-            <div className="video-responsive">
-                <div className="modal-remove"></div>
-                <iframe
-                    width="100%"
-                    height="50%"
-                    src={`https://drive.google.com/file/d/${props.values}/preview`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Embedded google"
-                />
-                <div className="modal-remove-popup"></div>
-            </div>
-        </Modal>
-    );
-}
-function Movies({ value }) {
-    const [modalShow, setModalShow] = React.useState(false);
-    return (
-        <>
-            <Link to='/watchmovie'>
-                <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
-            </Link>
-            <MyMovieModal
-                values={value}
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
-        </>
-    );
-}
+// function MyMovieModal(props) {
+//     return (
+//         <Modal
+//             {...props}
+//             size="lg"
+//             aria-labelledby="contained-modal-title-vcenter"
+//             centered
+//             animation={false}
+//         >
+//             <div className="modal-close" aria-label="close" onClick={props.onHide}>
+//             </div>
+//             <div className="video-responsive">
+//                 <div className="modal-remove"></div>
+//                 <iframe
+//                     width="100%"
+//                     height="50%"
+//                     src={`https://drive.google.com/file/d/${props.values}/preview`}
+//                     frameBorder="0"
+//                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                     allowFullScreen
+//                     title="Embedded google"
+//                 />
+//                 <div className="modal-remove-popup"></div>
+//             </div>
+//         </Modal>
+//     );
+// }
+// function Movies({ value }) {
+//     const [modalShow, setModalShow] = React.useState(false);
+//     return (
+//         <>
+//             <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
+//             <MyMovieModal
+//                 values={value}
+//                 show={modalShow}
+//                 onHide={() => setModalShow(false)}
+//             />
+//         </>
+//     );
+// }

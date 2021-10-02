@@ -88,8 +88,7 @@ function MyVerticallyCenteredModal(props) {
         actors: '',
         description: '',
         year: '',
-
-        director: "",
+        director:'',
     });
     const handleChanges = (event) => {
         setValues({

@@ -22,7 +22,7 @@ const Layout = (props) => {
                     <Route
                         render={(props) => (
                             <>
-                                <Navbar />
+                                <Navbar/>
                                 <RouterAdmin />
                             </>
                         )}

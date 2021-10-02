@@ -14,7 +14,6 @@ const FilterMovie = () => {
         typemovie: '',
         national: '',
     });
-
     useEffect(() => {
         if (values.typemovie && !values.national) {
             const fetchMovieByTypemoive = async () => {

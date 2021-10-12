@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Rate.css";
 import { FaStar } from "react-icons/fa";
 import axios from "../../axios";
-
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9"
@@ -22,7 +22,7 @@ const Rate = ({ id, size }) => {
     const handleClick = async (value) => {
         setCurrentValue(value)
         if (!user) {
-            alert("Bạn cần đăng nhập để đáng giá phim!")
+            NotificationManager.warning('để có thể đánh giá sao', 'Bạn cần đăng nhập', 3000);
             setCurrentValue(0);
             return;
         }
@@ -32,7 +32,7 @@ const Rate = ({ id, size }) => {
                     "token": `${user.token}`
                 }
             })
-        alert("Cảm ơn đánh giá của bạn");
+        NotificationManager.success('đánh giá của bạn', 'Cảm ơn về', 3000);
 
     }
 
@@ -65,6 +65,7 @@ const Rate = ({ id, size }) => {
                     )
                 })}
             </div>
+            <NotificationContainer />
         </div>
     );
 };

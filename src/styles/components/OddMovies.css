@@ -1,0 +1,41 @@
+.container-donate {
+    color: #fff;
+    padding: 3rem 1rem;
+}
+.donate-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.donate-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    grid-gap: 40px;
+}
+.header-momo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.donate-content-warning {
+    color: #ffdd57!important;
+}
+.img-momo {
+    height: 200px;
+    width: 200px;
+    margin-left: 100px;
+}
+.content-bank {
+    display: inline-block;
+    margin: 0 10px;
+    color: red;
+    font-size: 22px;
+    text-align: center;
+}
+.donate-or {
+    text-align: center;
+}
+.logo-Vpbank {
+    width: 200px;
+    height:50px;
+}

@@ -19,7 +19,7 @@ const Posts = ({ movies }) => {
                         <th>Diễn viên</th>
                         <th>Thể loại</th>
                         <th>Quốc gia</th>
-                        <th>Thao tác    </th>
+                        <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody  >

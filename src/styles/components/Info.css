@@ -1,3 +1,21 @@
+.description-movie {
+    background-color: #06121e;
+    color: #fff;
+}
+.modal-remove {
+    width: 640px;
+    height: 480px;
+    position: relative;
+}
+.modal-remove-popup {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    opacity: 100%;
+    background-color: #070707;
+}
 .background {
     background-image: url(https://image.tmdb.org/t/p/original/eP07auW0baxhbflms6obNfRB0NG.jpg);
     height: 600px;
@@ -159,8 +177,7 @@ button {
     background-color: #fff;
     color: #3273dc;
 }
-.csv {
-}
+
 dt {
     color: #7a7a7a;
     width: 120px;
@@ -190,7 +207,7 @@ dd {
 .trailer {
     cursor: pointer;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .trailer-clip {
     display: flex;
@@ -218,7 +235,7 @@ dd {
     height: 0;
 }
 
-.video-responsive iframe {
+.iframeYoutube {
     left: 0;
     top: 0;
     height: 100%;
@@ -403,7 +420,7 @@ dd {
 /* Responsive */
 /* mobile */
 @media only screen and (max-width: 768px) {
-    .container-info-info {
+    .container-info {
         display: block;
         justify-content: center;
         align-items: center;
@@ -451,20 +468,22 @@ dd {
         text-align: justify;
     }
     .trailer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
     }
     .trailer-clip {
         margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    .trailer-img {
+        height: 200px;
     }
 }
 /* tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .trailer {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         justify-content: center;
         align-items: center;
     }

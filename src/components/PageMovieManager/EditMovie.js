@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Modal, Form, Container, Row, Col, Alert, Nav, Navbar } from "react-bootstrap";
+import { Card, Button, Modal, Form, Container, Row, Col, Alert, Nav } from "react-bootstrap";
 import { useParams, Link, useHistory } from 'react-router-dom';
 import axios from "../axios";
 import GenreSelect from "./genreSelect";
@@ -116,9 +116,8 @@ const EditMovie = () => {
     return (
         < div className=" all  d-flex flex-column" onSubmit={handleSubmit} >
             <Container className="  mt-3 d-flex justify-content-between" >
-                <Navbar.Brand as={Link} to="/"><img src="/logo-full.png" alt="" style={{ height: 40 }} /></Navbar.Brand>
-                <Nav >
-                    <Link as={Link} to="/">admin  </Link>
+                <Nav className="backToAdmin">
+                    <Link as={Link} to="/"><i class="fas fa-hand-point-left"> Back to Admin</i></Link>
                 </Nav>
             </Container>
             {values ? (
@@ -155,7 +154,7 @@ const EditMovie = () => {
                                                     </div>
                                                 </Col>
                                                 <Col>
-                                                    <div><img className="mb-2    " style={{ width: 80, height: 100 }} src={values.imagebackground} alt="" />
+                                                    <div><img className="mb-2    " style={{ width: 80, height: 100 }} src={values.imagebackgroundlink} alt="" />
                                                         <div>Ảnh bìa phim</div>
                                                         <input type="file" className="border mb-3" onChange={fileInputOnChangeImagebackground} />
                                                     </div>

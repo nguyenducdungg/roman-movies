@@ -6,7 +6,7 @@ import { Loading } from "../Loading";
 import { Link, useHistory } from "react-router-dom";
 
 
-export const SignIn = () => {
+const SignIn = () => {
     const history = useHistory();
     const [values, setValues] = useState({
         email: '',
@@ -75,3 +75,4 @@ export const SignIn = () => {
 
     )
 }
+export default SignIn

@@ -1,19 +1,18 @@
 import React from 'react'
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
+
 import Helmet from '../components/Helmet'
-import Rate from '../components/Rate/Rating/Rate';
-import RatedAverage from '../components/Rate/RateAverage/RatedAverage';
+// import Featured from '../components/featured/Featured'
+import Slider from '../components/Movie/Movie'
 const Home = () => {
     return (
-        <Helmet title="Home">
-            <Header />
-            <div>đây là home</div>
-            <RatedAverage />
-            <Rate size={100} />
-            <Footer />
-        </Helmet>
+        <div className="background-base">
+            <Helmet title="Home">
+                {/* <Featured /> */}
+                <Slider />
+            </Helmet>
+        </div>
     )
 }
 
 export default Home;
+

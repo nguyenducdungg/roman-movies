@@ -13,12 +13,13 @@ const RatedAverage = ({ id }) => {
         const fetchRatedAverage = async () => {
             const response = await axios.get("/getrateavgbymovie/" + id);
             const data = await response.data;
-            console.log(data)
-            setRatedAverage(data.avg);
-        };
-        fetchRatedAverage()
-    }, [id])
+            if (data) {
+                setRatedAverage(data.avg);
+            }
 
+        };
+        fetchRatedAverage();
+    }, [id])
     const starstotal = 5;
     const starPercentage = (ratedAverage / starstotal) * 100
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`
@@ -26,7 +27,7 @@ const RatedAverage = ({ id }) => {
 
 
     return (
-        <div style={{ width: 200, height: 100 }}>
+        <div>
             <div className="stars-outer" >
                 <div className="stars-inner" style={{ width: `${starPercentageRounded}` }}></div>
             </div>

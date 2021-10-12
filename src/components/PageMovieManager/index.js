@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Container, Modal, Button, Form, Row, Col, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "./index.css"
 import axios from "../axios";
 import GenreSelect from "./genreSelect.js";
@@ -42,9 +41,6 @@ const PageMovieManager = () => {
             < Container >
                 <div className="pt-3">
                     <div className="d-flex flex-row" style={{ height: 40 }}>
-                        <Link to="/">
-                            <img src="/logo-full.png" alt="" style={{ height: 40 }} />
-                        </Link>
                         <>
                             <Button variant="primary" className="ms-auto" onClick={() => setModalShow(true)}>
                                 Tải lên phim mới
@@ -92,8 +88,7 @@ function MyVerticallyCenteredModal(props) {
         actors: '',
         description: '',
         year: '',
-
-        director: "",
+        director:'',
     });
     const handleChanges = (event) => {
         setValues({

@@ -5,7 +5,7 @@ import axios from "../axios";
 import { Loading } from "../Loading";
 
 
-export const SignUp = () => {
+const SignUp = () => {
 
     const [values, setValues] = useState({
         email: '',
@@ -122,3 +122,4 @@ export const SignUp = () => {
 
     )
 }
+export default SignUp

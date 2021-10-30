@@ -237,6 +237,7 @@ span {
     .navbar-link-mobile {
         display: block;
     }
+
 }
 @keyframes fadeIn {
     from {

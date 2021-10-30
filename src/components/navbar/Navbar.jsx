@@ -134,7 +134,7 @@ const Navbar = () => {
                         </div>
                         <input type="checkbox" id="navbar-mobile-input" name="" className="navbar-input" hidden />
                         <label className="navbar-overplay" htmlFor="navbar-mobile-input"></label>
-                        <div className="navbar-mobile-left">
+                        <div className="navbar-mobile-left" style={{paddingTop: "20px"}}>
                             <ul className="navbar-mobile-list">
                                 <Link to="/auth/sign-in">
                                     <li className="navbar-mobile-li loginButton-mobile">

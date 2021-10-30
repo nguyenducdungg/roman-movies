@@ -7,10 +7,14 @@ import GenreSelect from "./genreSelect.js";
 import NationalSelect from "./nationalSelect.js";
 import Posts from "./Posts";
 import Pagination from "./Pasination";
+import { Link, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Loading } from "../Loading";
 
 
+
 const PageMovieManager = () => {
+    const history = useHistory();
 
     const [modalShow, setModalShow] = useState(false);
     const [allMovie, setAllMovie] = useState([]);
@@ -40,11 +44,30 @@ const PageMovieManager = () => {
         <div className="all-page-movie" >
             < Container >
                 <div className="pt-3">
-                    <div className="d-flex flex-row" style={{ height: 40 }}>
+                    <div className="d-flex flex-row " style={{ justifyContent: "space-between" }}>
                         <>
-                            <Button variant="primary" className="ms-auto" onClick={() => setModalShow(true)}>
-                                Tải lên phim mới
+                            <Button variant="primary" as={Link} to="/userlist" >
+                                Quản lí người dùng
                             </Button>
+
+                            <div>
+                                <Button variant="primary" onClick={() => setModalShow(true)}>
+                                    Tải lên phim mới
+                                </Button>
+                                <Button style={{
+                                    marginLeft: 10
+                                }} variant="danger" onClick={() => {
+                                    if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
+                                        localStorage.removeItem('user')
+                                        history.push("/");
+                                        window.location.reload();
+                                    }
+                                }}>
+                                    Đăng Xuất
+                                </Button>
+                            </div>
+
+
 
                             <MyVerticallyCenteredModal
                                 show={modalShow}
@@ -58,6 +81,7 @@ const PageMovieManager = () => {
                     <Pagination moviesPerPage={moviesPerPage} totalMovies={allMovie.length} paginate={paginate} />
                 </div>
             </Container >
+
         </div >
     )
 }
@@ -88,7 +112,7 @@ function MyVerticallyCenteredModal(props) {
         actors: '',
         description: '',
         year: '',
-        director:'',
+        director: '',
     });
     const handleChanges = (event) => {
         setValues({

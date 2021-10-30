@@ -117,7 +117,7 @@ const EditMovie = () => {
         < div className=" all  d-flex flex-column" onSubmit={handleSubmit} >
             <Container className="  mt-3 d-flex justify-content-between" >
                 <Nav className="backToAdmin">
-                    <Link as={Link} to="/"><i class="fas fa-hand-point-left"> Back to Admin</i></Link>
+                    <Link as={Link} to="/"><i className="fas fa-hand-point-left"> Back to Admin</i></Link>
                 </Nav>
             </Container>
             {values ? (

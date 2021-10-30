@@ -19,7 +19,13 @@ const FilterMovie = () => {
     useEffect(() => {
 
         const FilterMovies = async () => {
-            const response = await axios.get("/filter", values);
+            const response = await axios.get("/filter", {
+                params: {
+                    typemovie: values.typemovie,
+                    national: values.national,
+                    year: values.year
+                }
+            });
             const data = await response.data;
             console.log(data)
             setAllMovie(data)

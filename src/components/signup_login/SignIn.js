@@ -34,6 +34,7 @@ const SignIn = () => {
         try {
             const res = await axios.post("/login", values);
             localStorage.setItem("user", JSON.stringify(res.data));
+            axios.defaults.headers.common.token = `${res.data.token}`;
             setAuthUser(res.data);
             history.push('/')
 

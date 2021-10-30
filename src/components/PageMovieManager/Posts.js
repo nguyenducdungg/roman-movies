@@ -10,7 +10,7 @@ const Posts = ({ movies }) => {
 
     return (
         <div className="all-page-movie">
-            <table className="content-table">
+            {movies && <table className="content-table">
                 <thead  >
                     <tr>
                         <th>Tên phim</th>
@@ -45,7 +45,7 @@ const Posts = ({ movies }) => {
                         </tr >
                     })}
                 </tbody>
-            </table>
+            </table>}
         </div>
     )
 

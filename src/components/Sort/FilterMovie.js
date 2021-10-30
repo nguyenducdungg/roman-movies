@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import GenreFilterSelect from "./GenreFilterSelect";
 import axios from '../axios'
 import CountrySelect from "./CountrySelect";
+import { Form } from "react-bootstrap";
 import "./Filtermovie.css";
 
 
@@ -13,39 +14,25 @@ const FilterMovie = () => {
     const [values, setValues] = useState({
         typemovie: '',
         national: '',
+        year: '',
     });
     useEffect(() => {
-        if (values.typemovie && !values.national) {
-            const fetchMovieByTypemoive = async () => {
-                const response = await axios.get("/filter?typemovie=" + values.typemovie);
-                const data = await response.data;
-                data.reverse();
-                setAllMovie(data)
-            };
-            fetchMovieByTypemoive();
-        }
 
-        if (!values.typemovie && values.national) {
-            const fetchMovieByNational = async () => {
-                const response = await axios.get("/filter?national=" + values.national);
-                const data = await response.data;
-                data.reverse();
-                setAllMovie(data);
-
-            };
-            fetchMovieByNational();
+        const FilterMovies = async () => {
+            const response = await axios.get("/filter", {
+                params: {
+                    typemovie: values.typemovie,
+                    national: values.national,
+                    year: values.year
+                }
+            });
+            const data = await response.data;
+            console.log(data)
+            setAllMovie(data)
         }
-        if (values.typemovie && values.national) {
-            const fetchMovieByTypeAndNational = async () => {
-                const response = await axios.get(`/filter?typemovie=${values.typemovie}national=${values.national}`);
-                const data = await response.data;
-                data.reverse();
-                setAllMovie(data);
+        FilterMovies();
 
-            };
-            fetchMovieByTypeAndNational();
-        }
-    }, [values.typemovie, values.national])
+    }, [values])
 
     const handleChanges = (event) => {
         setValues({
@@ -70,6 +57,14 @@ const FilterMovie = () => {
                     <select name="national" value={values.national} onChange={handleChanges}>
                         <CountrySelect />
                     </select>
+                </div>
+            </div>   <div className="select-field">
+                <label>Năm</label>
+                <div className="select">
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Control type="number" placeholder="Năm" name='year' value={values.year} onChange={handleChanges} />
+                    </Form.Group>
                 </div>
             </div>
         </div>

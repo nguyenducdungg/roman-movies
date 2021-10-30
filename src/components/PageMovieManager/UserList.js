@@ -7,13 +7,6 @@ import { Container, Modal, Button, Form, Row, Col, Alert, Nav } from "react-boot
 import { CheckCircleOutlined, StopOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import ProTable from '@ant-design/pro-table';
 
-
-
-
-
-
-
-
 export default () => {
     const actionRef = useRef();
     const user = JSON.parse(localStorage.getItem("user"));

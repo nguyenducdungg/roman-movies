@@ -18,7 +18,7 @@
     margin-bottom: 30px;
 }
 .donate-content-warning {
-    color: #ffdd57!important;
+    color: #ffdd57 !important;
 }
 .img-momo {
     height: 200px;
@@ -37,5 +37,43 @@
 }
 .logo-Vpbank {
     width: 200px;
-    height:50px;
+    height: 50px;
+}
+.logout-btn {
+    background-color: #cf2122;
+    cursor: pointer;
+    border-color: transparent;
+    padding: 7px;
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+}
+.navbar-end:hover .logout-btn {
+    display: block;
+}
+.fa-chevron-down {
+    font-size: 12px;
+}
+.donate-or-mobile {
+    padding: 30px 20px 20px 20px;
+    font-size: 20px;
+    display: none;
+}
+/* reponsive  */
+@media only screen and (max-width: 1023px) {
+    .img-momo {
+        margin-left: 30px;
+    }
+    .donate-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        text-align: center;
+    }
+    .donate-or {
+        display: none;
+    }
+    .donate-or-mobile {
+        display: block;
+    }
 }

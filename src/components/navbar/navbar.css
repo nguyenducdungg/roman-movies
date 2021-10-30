@@ -7,20 +7,57 @@
     background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
     background-color: #06121e;
 }
+.navbar-pc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.navbar-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+.navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+}
+.navbar-mobile-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    width: 250px;
+    background: #0b1e30;
+    z-index: 100;
+    transform: translateX(-150%);
+    transition: transform linear 0.4s, opacity 0.4s;
+}
+
+.fa-bars {
+    font-size: 28px;
+    cursor: pointer;
+}
+.navbar-link {
+    color: #fff;
+}
 .navbar-link:hover {
     background-color: #102c48;
     color: #428bca;
     height: 100%;
 }
 .header.scrolled {
-    background-color: rgba(51,10,103,.93);
+    background-color: rgba(51, 10, 103, 0.93);
     position: fixed;
-    padding : 0
+    padding: 0;
 }
 .header .navbar-container {
     padding: 0px 50px;
     display: flex;
-    height: 70px;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
 }
@@ -33,7 +70,7 @@
     color: #fff;
     display: block;
     line-height: 1.5;
-    padding: .5rem .75rem;
+    padding: 0.5rem 0.75rem;
     position: relative;
 }
 .icon-search-navbar {
@@ -55,4 +92,157 @@ span {
     padding: 7px;
     color: #fff;
     border-radius: 5px;
+}
+/* .navbar-end {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 100;
+} */
+
+.navbar-menu-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    background-color: #222222;
+    width: 200px;
+    border-radius: 15px;
+    z-index: 1000;
+    display: none;
+}
+.navbar-end:hover .navbar-menu-dropdown {
+    display: block;
+}
+/* .navbar-menu-dropdown:before {
+    content: "";
+    top: -10px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 888;
+  } */
+.navbar-menu-dropdown:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -32px;
+    width: 200px;
+    height: 32px;
+    z-index: 888;
+}
+.menu-dropdown {
+    padding-left: 0;
+    margin: 10px 10px;
+    list-style: none;
+}
+.item-dropdown {
+    cursor: pointer;
+}
+.item-dropdown:hover {
+    background-color: #428bca;
+    opacity: 1;
+}
+.a-menu-dropdown {
+    color: #fff !important;
+}
+.icon-dropdown {
+    padding: 10px;
+}
+
+/* mobile */
+.navbar-link-mobile {
+    color: #fff;
+    display: none;
+}
+.navbar-link-mobile:hover {
+    background-color: #102c48;
+    color: #428bca;
+    height: 100%;
+}
+.loginButton-mobile {
+    background-color: #cf2122 !important;
+    cursor: pointer;
+    border-color: transparent;
+    padding: 7px;
+    color: #fff;
+    border-radius: 12px;
+}
+.image-nav-mobile {
+    height: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.navbar-overplay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 100;
+    animation: fadeIn linear 0.4s;
+}
+.navbar-mobile-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 18px;
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0 16px;
+}
+.navbar-mobile-link {
+    color: #fff;
+    margin-left: 15px;
+}
+.navbar-mobile-li {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.navbar-mobile-li:hover {
+    background-color: cadetblue;
+    border-radius: 10px;
+}
+.fa-times {
+    font-size: 28px;
+}
+.nav-user {
+    background-color: #06121e !important;
+}
+.navbar-input:checked ~ .navbar-overplay {
+    display: block;
+}
+.navbar-input:checked ~ .navbar-mobile-left {
+    transform: translateX(0%);
+}
+
+/* Reponsive */
+@media (max-width: 1023px) {
+    .navbar-pc {
+        display: none;
+    }
+    .navbar-container {
+        padding: 0px 20px !important;
+    }
+    .navbar-mobile {
+        display: block;
+    }
+    .navbar-link-mobile {
+        display: block;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

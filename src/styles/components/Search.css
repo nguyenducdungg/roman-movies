@@ -1,0 +1,24 @@
+.search-movie {
+    padding: 3rem 0.8rem;
+}
+.input-search {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-radius: 4px;
+    color: #363636;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    -webkit-appearance: none;
+    align-items: center;
+    display: inline-flex;
+    font-size: 1.25rem;
+    height: 2.5em;
+    padding: calc(0.5em - 1px) calc(0.75em - 1px);
+    outline: none;
+}
+.background-search {
+    background-color: #06121e;
+}

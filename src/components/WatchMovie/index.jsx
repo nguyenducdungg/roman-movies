@@ -34,17 +34,29 @@ const WatchMovie = ({ params }) => {
                         />
                         <div className="modal-remove-popup"></div>
                     </div>
-                    <h1 className="watchmovie-title">{oneMovie.moviename} <Rate id={params.id}/></h1>
-                    <div className="comment-session">
-                        <h2 className="text-comment"><i class="fas fa-comments"></i> Comment</h2>
-                        <form action="" className="form-comment">
-                            <div className="input-form">
-                                <textarea className="textarea" placeholder="Nhập bình luận..." rows="2" required name="content"></textarea>
-                            </div>
-                            <div className="btn-send">
-                                <button className="btn-send-comment" type="submit">Send</button>
-                            </div>
-                        </form>
+                    <div className="watchMovie-content">
+                        <h1 className="watchmovie-title">{oneMovie.moviename} <Rate id={params.id} /></h1>
+                        <div className="watchmovie-suggestions">
+                            <h1>
+                                Có thể bạn sẽ thích
+                            </h1>
+                        </div>
+                        <div className="comment-session">
+                            <h2 className="text-comment"><i class="fas fa-comments"></i> Comment</h2>
+                            <form action="" className="form-comment">
+                                <div className="input-form">
+                                    <textarea className="textarea" placeholder="Nhập bình luận..." rows="2" required name="content"></textarea>
+                                </div>
+                                <div className="btn-send">
+                                    <button className="btn-send-comment" type="submit">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="movie-suggestions">
+                            <img src="https://image.tmdb.org/t/p/w342/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Ảnh phim" class="img-suggest" />
+                            <img src="https://image.tmdb.org/t/p/w342/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="Ảnh phim" className="img-suggest" />
+                            <img src="https://image.tmdb.org/t/p/w342/iy3Q3QcarTjvsE5ZzPCABZLH4mJ.jpg" alt="Ảnh phim" className="img-suggest" />
+                        </div>
                     </div>
 
                 </>

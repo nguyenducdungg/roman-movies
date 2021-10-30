@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import axios from "../utils/ApiAxios";
 import FilterMovie from '../Sort/FilterMovie'
-
-export default function Movie() {
+const AllMovies = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -15,16 +14,35 @@ export default function Movie() {
         };
         fetchMovie();
     }, []);
+    // const [allMovie, setAllMovie] = useState([]);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const moviesPerPage = 5
+    // useEffect(() => {
+    //     const fetchAllMovie = async () => {
+    //         const response = await axios.get("/getallmovie");
+    //         const data = await response.data;
+    //         data.reverse();
+    //         setAllMovie(data);
+
+    //     };
+    //     fetchAllMovie();
+    // }, [setAllMovie]);
+
+    // const indexOFLastMovie = currentPage * moviesPerPage;
+    // const indexOfFirstMovie = indexOFLastMovie - moviesPerPage;
+    // const currentPosts = allMovie.slice(indexOfFirstMovie, indexOFLastMovie);
+    // //change page
+    // const paginate = (pageNumber) => {
+    //     setCurrentPage(pageNumber)
+    // }
     const indexSizeMovie = movies.slice(0, 10);
     return (
         <>
             {movies ? (
                 <div className="container-home">
-                    <FilterMovie />
-                    <h2 className="title-home">
-                        <span className="title-home-type">Phim lẻ</span>
-                        <Link to="/type/movie"><span className="title-home-watchAll">Xem tất cả <i className="fas fa-caret-right"></i></span></Link>
-                    </h2>
+                    <br />
+                    <FilterMovie/>
+                    <br />
                     <div className="main-home">
                         {indexSizeMovie.map((movie) => {
                             return (
@@ -42,11 +60,6 @@ export default function Movie() {
                             )
                         })}
                     </div>
-                    <h2 className="title-home">
-                        <span className="title-home-type">Phim Bộ</span>
-                        <Link to="/type/show"><span className="title-home-watchAll">Xem tất cả <i className="fas fa-caret-right"></i></span></Link>
-                    </h2>
-                    <div div className="text-home-warning">Hiện tại team đang vẫn đang phát triển, để bạn có thể xem được hết các tập vui lòng sử dụng chức năng tìm kiếm hoặc lọc để có thể xem hết được các phần</div>
                 </div>
             ) : (
                 <>
@@ -56,3 +69,5 @@ export default function Movie() {
         </>
     )
 }
+
+export default AllMovies;

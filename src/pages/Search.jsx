@@ -1,11 +1,11 @@
 import React from 'react'
 import Helmet from '../components/Helmet'
-import AllMovies from '../components/AllMovies'
+import Search from '../components/Search'
 const SeriesMovie = () => {
     return (
         <div className="background-base">
-            <Helmet title="SeriesMovie">
-                <AllMovies />
+            <Helmet title="Search">
+                <Search />
             </Helmet>
         </div>
     )

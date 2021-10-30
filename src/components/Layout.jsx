@@ -32,12 +32,12 @@ const Layout = (props) => {
                 <BrowserRouter>
                     <Route
                         render={(props) => (
-                            <>
+                            <div className="background-base">
                                 <Navbar />
                                 <Routes />
                                 <Footer />
 
-                            </>
+                            </div>
                         )}
                     />
                 </BrowserRouter>

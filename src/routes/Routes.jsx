@@ -9,6 +9,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import Info from '../pages/Info';
 import HomeAuth from '../pages/HomeAuth';
 import WatchMovie from '../pages/WatchMovie';
+import Search from '../pages/Search';
 const Routes = () => {
     return (
         <Switch>
@@ -21,6 +22,7 @@ const Routes = () => {
             <Route path="/info/:slug/:id" component={Info} />
             <Route path="/auth" component={HomeAuth} />
             <Route path="/watchmovie/:id" component={WatchMovie} />
+            <Route path="/search" component={Search} />
         </Switch>
     )
 }

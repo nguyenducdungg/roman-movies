@@ -52,7 +52,7 @@ const Navbar = () => {
                     <>
                         <div className="navbar-logo">
                             <label className="navbar-mobile" htmlFor="navbar-mobile-input">
-                                <i class="fas fa-bars"></i>
+                                <i className="fas fa-bars"></i>
                             </label>
                             <div className="navbar-mobile">
                                 <Link to="/">
@@ -64,11 +64,11 @@ const Navbar = () => {
                         <label className="navbar-overplay" htmlFor="navbar-mobile-input"></label>
                         <div className="navbar-mobile-left">
                             <ul className="navbar-mobile-list">
-                                <li className="navbar-mobile-li nav-user"><i class="fas fa-user"></i><span className="navbar-mobile-link">{username.username}</span></li>
-                                <li className="navbar-mobile-li"><i class="fas fa-exclamation-circle"></i><span className="navbar-mobile-link">Tài khoản</span></li>
-                                <Link to="/type/show"><li className="navbar-mobile-li"><i class="fas fa-donate"></i> <span className="navbar-mobile-link">Donate</span></li></Link>
-                                <li className="navbar-mobile-li"><i class="fas fa-film"></i><span className="navbar-mobile-link">Bộ sưu tập</span></li>
-                                <li className="navbar-mobile-li" onClick={() => handleLogout()}><i class="fas fa-sign-out-alt"></i><span className="navbar-mobile-link">Đăng xuất</span></li>
+                                <li className="navbar-mobile-li nav-user"><i className="fas fa-user"></i><span className="navbar-mobile-link">{username.username}</span></li>
+                                <li className="navbar-mobile-li"><i className="fas fa-exclamation-circle"></i><span className="navbar-mobile-link">Tài khoản</span></li>
+                                <Link to="/type/show"><li className="navbar-mobile-li"><i className="fas fa-donate"></i> <span className="navbar-mobile-link">Donate</span></li></Link>
+                                <li className="navbar-mobile-li"><i className="fas fa-film"></i><span className="navbar-mobile-link">Bộ sưu tập</span></li>
+                                <li className="navbar-mobile-li" onClick={() => handleLogout()}><i className="fas fa-sign-out-alt"></i><span className="navbar-mobile-link">Đăng xuất</span></li>
                                 <hr className="navbar-hr" />
                                 <Link to="/type/movie"><li className="navbar-mobile-li"><span className="navbar-mobile-link">Phim Lẻ</span></li></Link>
                                 <Link to="/type/show"><li className="navbar-mobile-li"><span className="navbar-mobile-link">Phim Bộ</span></li></Link>
@@ -100,15 +100,15 @@ const Navbar = () => {
                             </div>
                             <div className="navbar-end">
                                 <div className="navbar-link navbar-end-menu">
-                                    <span>Hello, {username.username}  <i class="fas fa-chevron-down"></i></span>
+                                    <span>Hello, {username.username}  <i className="fas fa-chevron-down"></i></span>
                                 </div>
                                 <div className="navbar-menu-dropdown">
                                     <ul className="menu-dropdown">
-                                        <li className="item-dropdown"><i class="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
-                                        <li className="item-dropdown"><i class="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li>
-                                        <li className="item-dropdown"><i class="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li>
+                                        <li className="item-dropdown"><i className="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
+                                        <li className="item-dropdown"><i className="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li>
+                                        <li className="item-dropdown"><i className="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li>
                                         <li className="item-dropdown" onClick={() => handleLogout()}>
-                                            <i class="fas fa-sign-out-alt icon-dropdown"></i>
+                                            <i className="fas fa-sign-out-alt icon-dropdown"></i>
                                             <Link to="/">
                                                 <a href="#top" className="a-menu-dropdown">Logout</a>
                                             </Link>
@@ -124,7 +124,7 @@ const Navbar = () => {
                     <>
                         <div className="navbar-logo">
                             <label className="navbar-mobile" htmlFor="navbar-mobile-input">
-                                <i class="fas fa-bars"></i>
+                                <i className="fas fa-bars"></i>
                             </label>
                             <div className="navbar-mobile">
                                 <Link to="/">
@@ -134,17 +134,17 @@ const Navbar = () => {
                         </div>
                         <input type="checkbox" id="navbar-mobile-input" name="" className="navbar-input" hidden />
                         <label className="navbar-overplay" htmlFor="navbar-mobile-input"></label>
-                        <div className="navbar-mobile-left" style={{paddingTop: "20px"}}>
+                        <div className="navbar-mobile-left" style={{ paddingTop: "20px" }}>
                             <ul className="navbar-mobile-list">
                                 <Link to="/auth/sign-in">
                                     <li className="navbar-mobile-li loginButton-mobile">
-                                        <i class="fas fa-user"></i>
+                                        <i className="fas fa-user"></i>
                                         <span className="navbar-mobile-link">Đăng nhập</span>
                                     </li>
                                 </Link>
                                 <Link to="/auth/sign-up">
                                     <li className="navbar-mobile-li">
-                                        <i class="fas fa-registered"></i>
+                                        <i className="fas fa-registered"></i>
                                         <span className="navbar-mobile-link">Đăng ký</span>
                                     </li>
                                 </Link>
@@ -189,7 +189,7 @@ const Navbar = () => {
                 )}
 
             </div>
-        </div>
+        </div >
     )
 }
 

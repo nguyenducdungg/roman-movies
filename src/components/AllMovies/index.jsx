@@ -37,20 +37,18 @@ const AllMovies = () => {
     // }
     const indexSizeMovie = movies.slice(0, 10);
     return (
-        <>
+        <><br />
+            <FilterMovie />
+            <br />
             {movies ? (
                 <div className="container-home">
-                    <br />
-                    <FilterMovie/>
-                    <br />
+
                     <div className="main-home">
                         {indexSizeMovie.map((movie) => {
                             return (
                                 <Link to={"/info/" + movie.moviename + "/" + movie._id} key={movie._id} >
                                     <div>
-
                                         <img className="img-home" src={movie.imagelink} alt="movies" />
-
                                         <div className="main-home-title-movie">
                                             <h3 className="movieName" >{movie.moviename}</h3>
                                             <h3 className="movieNameVn">{movie.movienamevn}</h3>

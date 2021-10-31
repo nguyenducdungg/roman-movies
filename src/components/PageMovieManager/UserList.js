@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 
 import { useParams, Link, useHistory } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+import enUS from 'antd/lib/locale/en_US';
 import axios from "../axios";
 import { notification } from 'antd';
 import { Container, Modal, Button, Form, Row, Col, Alert, Nav } from "react-bootstrap";
 import { CheckCircleOutlined, StopOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import ProTable from '@ant-design/pro-table';
+import ProTable, { viVNIntl } from '@ant-design/pro-table';
 
 export default () => {
     const actionRef = useRef();
@@ -49,8 +51,9 @@ export default () => {
             width: 150,
             render: (_, record) => {
                 return (
+
                     <div>
-                        <Button variant="danger" onClick={async () => {
+                        {record.role !== "admin" && <Button variant="danger" onClick={async () => {
                             let response = await fetch(`https://apiwebmovie.herokuapp.com/deleteuser/${record._id}`, {
                                 method: "PUT",
                                 headers: {
@@ -71,7 +74,8 @@ export default () => {
 
                         }}>
                             Xóa
-                        </Button>
+                        </Button>}
+
                     </div>
                 )
             }
@@ -81,34 +85,38 @@ export default () => {
 
 
     return (
-        <Container>
-            <Container className="  mt-3 d-flex justify-content-between" >
+        <div style={{ height: 'fit-content' }}>
+            <Container className=" pt-3  d-flex justify-content-between" >
                 <Nav className="backToAdmin">
                     <Link as={Link} to="/"><i className="fas fa-hand-point-left"> Back to Admin</i></Link>
                 </Nav>
             </Container>
             <h1 className="text-center pt-2" style={{ fontSize: 50 }}>Danh sách Người dùng</h1>
-            <ProTable
-                columns={columns}
-                actionRef={actionRef}
-                request={async (params, sorter, filter) => {
+            <ConfigProvider locale={enUS}>
+                <ProTable
+                    columns={columns}
+                    actionRef={actionRef}
+                    request={async (params, sorter, filter) => {
 
-                    const response = await axios.get("/getuser", {
+                        const response = await axios.get("/getuser", {
 
-                        headers: {
-                            "token": `${user.token}`
-                        }
-                    });
-                    console.log(response);
-                    return response;
-                }}
-                rowKey="_id"
-                pagination={{
-                    pageSize: 10
-                }}
-                search={false}
-                editable={false}
-            />
-        </Container>
+                            headers: {
+                                "token": `${user.token}`
+                            }
+                        });
+                        console.log(response);
+                        return response;
+                    }}
+                    rowKey="_id"
+                    pagination={{
+
+                        pageSize: 10
+                    }}
+                    search={false}
+                    editable={false}
+                />
+            </ConfigProvider>
+
+        </div>
     );
 };

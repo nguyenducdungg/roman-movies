@@ -8,6 +8,8 @@ import { Loading } from "../Loading";
 
 const EditMovie = () => {
     const history = useHistory();
+    const [values, setValues] = useState(null);
+
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
         history.push("/")
@@ -31,7 +33,6 @@ const EditMovie = () => {
     }, [id]);
 
 
-    const [values, setValues] = useState(null);
 
 
     const fileInputOnChangeImage = (event) => {
@@ -125,9 +126,9 @@ const EditMovie = () => {
                     {loading && <Loading text="Đang thay đổi ..." />}
                     {err && <Alert variant="danger" style={{ textAlign: "center" }}>{err}</Alert>}
                     {isSucceeded && <Edit />}
-                    <Row className="pb-5">
+                    <Row >
                         <Col xs={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }} xl={{ span: 6, offset: 3 }}>
-                            <Card>
+                            <Card style={{ overflow: 'scroll', height: '90vh' }}>
                                 <Card.Header><h3>Sửa phim   </h3></Card.Header>
                                 <Card.Body >
                                     <Form >
@@ -166,10 +167,10 @@ const EditMovie = () => {
                                         <Container className="mb-3">
                                             <Row>
                                                 <Col>
-                                                    <GenreSelect isMulti={true} label="Thể loại" value={values.typemovie} onChange={inputTypemovieOnchange} name="typemovie" />
+                                                    <GenreSelect isMulti={true} label={`Thể loại: ${values.typemovie}`} value={values.typemovie} onChange={inputTypemovieOnchange} name="typemovie" />
                                                 </Col>
-                                                <Col><Form.Group className="" controlId="national">
-                                                    <div>Quốc gia</div>
+                                                <Col><Form.Group controlId="national">
+                                                    <div>Quốc gia: {values.national}</div>
                                                     <select name="national" value={values.national} onChange={handleChanges} >
                                                         <NationalSelect />
                                                     </select>

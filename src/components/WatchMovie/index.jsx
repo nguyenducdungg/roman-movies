@@ -42,7 +42,7 @@ const WatchMovie = ({ params }) => {
                             </h1>
                         </div>
                         <div className="comment-session">
-                            <h2 className="text-comment"><i class="fas fa-comments"></i> Comment</h2>
+                            <h2 className="text-comment"><i className="fas fa-comments"></i> Comment</h2>
                             <form action="" className="form-comment">
                                 <div className="input-form">
                                     <textarea className="textarea" placeholder="Nhập bình luận..." rows="2" required name="content"></textarea>
@@ -53,7 +53,7 @@ const WatchMovie = ({ params }) => {
                             </form>
                         </div>
                         <div className="movie-suggestions">
-                            <img src="https://image.tmdb.org/t/p/w342/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Ảnh phim" class="img-suggest" />
+                            <img src="https://image.tmdb.org/t/p/w342/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Ảnh phim" className="img-suggest" />
                             <img src="https://image.tmdb.org/t/p/w342/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="Ảnh phim" className="img-suggest" />
                             <img src="https://image.tmdb.org/t/p/w342/iy3Q3QcarTjvsE5ZzPCABZLH4mJ.jpg" alt="Ảnh phim" className="img-suggest" />
                         </div>

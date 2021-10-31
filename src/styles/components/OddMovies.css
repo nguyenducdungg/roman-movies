@@ -59,6 +59,9 @@
     font-size: 20px;
     display: none;
 }
+.h1-color {
+    color: #fff !important;
+}
 /* reponsive  */
 @media only screen and (max-width: 1023px) {
     .img-momo {

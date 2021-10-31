@@ -105,7 +105,7 @@ const Navbar = () => {
                                 <div className="navbar-menu-dropdown">
                                     <ul className="menu-dropdown">
                                         <li className="item-dropdown"><i class="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
-                                        <li className="item-dropdown"><i class="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li>
+                                        <Link to="/type/show"><li className="item-dropdown"><i class="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li></Link>
                                         <li className="item-dropdown"><i class="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li>
                                         <li className="item-dropdown" onClick={() => handleLogout()}>
                                             <i class="fas fa-sign-out-alt icon-dropdown"></i>
@@ -134,7 +134,7 @@ const Navbar = () => {
                         </div>
                         <input type="checkbox" id="navbar-mobile-input" name="" className="navbar-input" hidden />
                         <label className="navbar-overplay" htmlFor="navbar-mobile-input"></label>
-                        <div className="navbar-mobile-left" style={{paddingTop: "20px"}}>
+                        <div className="navbar-mobile-left" style={{ paddingTop: "20px" }}>
                             <ul className="navbar-mobile-list">
                                 <Link to="/auth/sign-in">
                                     <li className="navbar-mobile-li loginButton-mobile">

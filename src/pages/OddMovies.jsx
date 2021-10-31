@@ -10,7 +10,7 @@ const OddMovies = () => {
             <Helmet title="Phim Bộ">
                 <div className="container-donate">
                     <div className="donate-header">
-                        <h1>Donate</h1>
+                        <h1 className="h1-color">Donate</h1>
                         <p>Phần phim bộ đang được team phát triển để bạn có thể dễ dàng biết được tất cả các phần/tập của phim.</p>
                         <p> Nhưng tuy nhiên chúng tôi vẫn upload tất cả trong mục tất cả phim. Bạn có thể lọc hay tìm kiếm để trải nghiệm hết nhé</p>
                         <p>Để ủng hộ website và sử dụng tính năng VIP mode cho phim cũng như tạo động lực cho team phát triển</p>
@@ -18,7 +18,7 @@ const OddMovies = () => {
                     </div>
                     <div className="donate-form">
                         <div className="donate-momo">
-                            <h3 className="header-momo">Nạp qua Momo</h3>
+                            <h3 className="header-momo h1-color">Nạp qua Momo</h3>
                             <div className="donate-content-left">
                                 <ul>
                                     <li>1. Mở app Momo và <b>Quét mã</b> bên dưới</li>
@@ -42,7 +42,7 @@ const OddMovies = () => {
                         </div>
 
                         <div className="donate-bank">
-                            <h3>Chuyển khoản ngân hàng</h3>
+                            <h3 className="h1-color">Chuyển khoản ngân hàng</h3>
                             <img src={logoVpbank} alt="" className="logo-Vpbank" />
                             <p></p>
                             <p className="bank-vp">Chủ tài khoản : Nguyễn Đức Dũng</p>

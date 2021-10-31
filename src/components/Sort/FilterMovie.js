@@ -4,6 +4,7 @@ import axios from '../axios'
 import CountrySelect from "./CountrySelect";
 import { Form } from "react-bootstrap";
 import "./Filtermovie.css";
+import { Button } from "antd";
 
 
 //Cách dùng: Sau thi thêm component FilterMovie vào thẻ, thì truyền 2 yếu tố là movies, setMovies của  trang  chính vào để set sự thay đổi
@@ -61,11 +62,24 @@ const FilterMovie = () => {
             </div>   <div className="select-field">
                 <label>Năm</label>
                 <div className="select">
-
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Control type="number" placeholder="Năm" name='year' value={values.year} onChange={handleChanges} />
                     </Form.Group>
                 </div>
+            </div>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center'
+            }}>
+                <Button variant="ranger" onClick={() => {
+                    setValues({
+                        typemovie: '',
+                        national: '',
+                        year: '',
+                    })
+                }}>
+                    Reset
+                </Button>
             </div>
         </div>
     );

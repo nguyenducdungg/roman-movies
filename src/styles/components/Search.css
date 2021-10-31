@@ -20,5 +20,13 @@
     outline: none;
 }
 .background-search {
+    padding-left: 10%;
+    width: 50%;
     background-color: #06121e;
+}
+
+.main-search{
+    display: flex;
+    flex-direction: row;
+    gap:15px;
 }

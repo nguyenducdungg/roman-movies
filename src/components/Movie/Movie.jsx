@@ -5,28 +5,15 @@ import FilterMovie from '../Sort/FilterMovie'
 
 export default function Movie() {
     const [movies, setMovies] = useState([]);
-    const [values, setValues] = useState({
-        typemovie: '',
-        national: '',
-        year: '',
-    });
-    useEffect(() => {
 
-        const FilterMovies = async () => {
-            const response = await axios.get("/filter", {
-                params: {
-                    typemovie: values.typemovie,
-                    national: values.national,
-                    year: values.year
-                }
-            });
+    useEffect(async() => {
+        
+            const response = await axios.get("/getallmovie");
             const data = await response.data;
-            console.log(data)
-            setMovies(data)
-        }
-        FilterMovies();
+            return ()=>{setMovies(data);}
 
-    }, [values])
+     
+    }, []);
     const indexSizeMovie = movies.slice(0, 10);
     return (
         <>

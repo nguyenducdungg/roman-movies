@@ -47,14 +47,14 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     white-space: normal;
-    width: 200px;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: all 0.5s 0.2s ease-in-out;
 }
 
 .overlink {
-    max-width: 250px;
+    max-width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -75,10 +75,11 @@
     text-overflow: inherit;
     background: #fff;
     position: absolute;
-    /* left:auto;
+    z-index: 1;
+    left:auto;
     top:auto;
-    width: auto; */
-    max-width: 20rem;
+    
+    max-width: 100vh;
     border: 1px solid #eaebec;
     padding: 0 0.5rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.28);

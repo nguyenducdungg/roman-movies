@@ -6,20 +6,21 @@ import FilterMovie from '../Sort/FilterMovie'
 export default function Movie() {
     const [movies, setMovies] = useState([]);
 
-    useEffect(async() => {
-        
+    useEffect(() => {
+        const fetchMovie = async () => {
             const response = await axios.get("/getallmovie");
             const data = await response.data;
-            return ()=>{setMovies(data);}
+            setMovies(data);
 
-     
+        };
+        fetchMovie();
     }, []);
     const indexSizeMovie = movies.slice(0, 10);
     return (
         <>
             {movies ? (
                 <div className="container-home">
-                    <FilterMovie />
+
                     <h2 className="title-home">
                         <span className="title-home-type">Phim lẻ</span>
                         <Link to="/type/movie"><span className="title-home-watchAll">Xem tất cả <i className="fas fa-caret-right"></i></span></Link>
@@ -27,14 +28,14 @@ export default function Movie() {
                     <div className="main-home">
                         {indexSizeMovie.map((movie) => {
                             return (
-                                <Link to={"/info/" + movies.moviename + "/" + movies._id} key={movies._id} >
+                                <Link to={"/info/" + movie.moviename + "/" + movie._id} key={movie._id} >
                                     <div>
 
-                                        <img className="img-home" src={movies.imagelink} alt="movies" />
+                                        <img className="img-home" src={movie.imagelink} alt="movies" />
 
                                         <div className="main-home-title-movie">
-                                            <h3 className="movieName" >{movies.moviename}</h3>
-                                            <h3 className="movieNameVn">{movies.movienamevn}</h3>
+                                            <h3 className="movieName" >{movie.moviename}</h3>
+                                            <h3 className="movieNameVn">{movie.movienamevn}</h3>
                                         </div>
                                     </div>
                                 </Link>

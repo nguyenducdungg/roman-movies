@@ -3,17 +3,17 @@ import { Link } from "react-router-dom"
 import axios from "../utils/ApiAxios";
 import FilterMovie from '../Sort/FilterMovie'
 const AllMovies = () => {
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState(null);
 
-    useEffect(() => {
-        const fetchMovie = async () => {
-            const response = await axios.get("/getallmovie");
-            const data = await response.data;
-            setMovies(data);
+    // useEffect(() => {
+    //     const fetchMovie = async () => {
+    //         const response = await axios.get("/getallmovie");
+    //         const data = await response.data;
+    //         setMovies(data);
 
-        };
-        fetchMovie();
-    }, []);
+    //     };
+    //     fetchMovie();
+    // }, []);
     // const [allMovie, setAllMovie] = useState([]);
     // const [currentPage, setCurrentPage] = useState(1);
     // const moviesPerPage = 5
@@ -35,10 +35,12 @@ const AllMovies = () => {
     // const paginate = (pageNumber) => {
     //     setCurrentPage(pageNumber)
     // }
-    const indexSizeMovie = movies.slice(0, 10);
+    let indexSizeMovie = [];
+    if (movies) { indexSizeMovie = movies.movies.slice(0, 10); }
+    console.log(movies);
     return (
         <><br />
-            <FilterMovie />
+            <FilterMovie setMovies={setMovies} />
             <br />
             {movies ? (
                 <div className="container-home">

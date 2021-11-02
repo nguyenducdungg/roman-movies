@@ -12,8 +12,7 @@ import "./index.css";
 import axios from "../axios";
 import GenreSelect from "./genreSelect.js";
 import NationalSelect from "./nationalSelect.js";
-import Posts from "./Posts";
-import Pagination from "./Pasination";
+
 import { Link, useHistory } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import { Loading } from "../Loading";
@@ -194,9 +193,9 @@ const PageMovieManager = () => {
               />
             </>
           </div>
-          <h1 className="text-center pt-2" style={{ fontSize: 50 }}>
+          <div className="text-center pt-2" style={{ fontSize: 50, fontWeight: 500 }}>
             Danh Sách Phim
-          </h1>
+          </div>
 
           <ConfigProvider locale={enUS}>
             <ProTable

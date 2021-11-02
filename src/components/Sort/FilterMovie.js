@@ -8,8 +8,8 @@ import { Button } from "antd";
 
 //Cách dùng: Sau thi thêm component FilterMovie vào thẻ, thì truyền 2 yếu tố là movies, setMovies của  trang  chính vào để set sự thay đổi
 
-const FilterMovie = () => {
-  const [movies, setAllMovie] = useState([]);
+const FilterMovie = ({ setMovies }) => {
+
   const [values, setValues] = useState({
     typemovie: "",
     national: "",
@@ -25,9 +25,9 @@ const FilterMovie = () => {
     });
     const data = await response.data;
     console.log(data);
-    return () => {
-      setAllMovie(data);
-    };
+
+    setMovies(data);
+
   }, [values]);
 
   const handleChanges = (event) => {

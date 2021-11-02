@@ -6,14 +6,13 @@ import FilterMovie from '../Sort/FilterMovie'
 export default function Movie() {
     const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-        const fetchMovie = async () => {
+    useEffect(async() => {
+        
             const response = await axios.get("/getallmovie");
             const data = await response.data;
-            setMovies(data);
+            return ()=>{setMovies(data);}
 
-        };
-        fetchMovie();
+     
     }, []);
     const indexSizeMovie = movies.slice(0, 10);
     return (

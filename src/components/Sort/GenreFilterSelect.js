@@ -2,24 +2,35 @@ import React, { useState, useEffect } from "react";
 import axios from "../axios";
 
 const GenreFilterSelect = () => {
-    const [genres, SetGenre] = useState([]);
-    const fectCountry = async () => {
-        const response = await axios.get("/gettypemovie");
-        const data = await response.data;
-        SetGenre(data);
+  const [genres, SetGenre] = useState([]);
 
+  useEffect(async () => {
+    const response = await axios.get("/gettypemovie");
+    const data = await response.data;
+    return () => {
+      SetGenre(data);
     };
-    useEffect(() => {
-        fectCountry();
-    }, []);
-    const genresOption = genres.map((genre, index) => {
-        return <option key={index} value={genre}>{genre}</option>;
+  });
+  let genresOption = [];
+  if (genres > 0) {
+    genresOption = genres.map((genre, index) => {
+      return (
+        <option key={index} value={genre}>
+          {genre}
+        </option>
+      );
     });
-    return (
-        <> <option value="">- Thể loại -</option>
-            {genresOption}
+  }
+  return (
+    <>
+      {genresOption && (
+        <>
+          <option value="">- Thể loại -</option>
+          {genresOption}
         </>
-    );
+      )}
+    </>
+  );
 };
 
 export default GenreFilterSelect;

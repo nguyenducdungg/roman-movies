@@ -1,156 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  Container,
-  Modal,
-  Button,
-  Form,
-  Row,
-  Col,
-  Alert,
-} from "react-bootstrap";
-import "./index.css";
-import axios from "../axios";
-import GenreSelect from "./genreSelect.js";
-import NationalSelect from "./nationalSelect.js";
-import Posts from "./Posts";
-import Pagination from "./Pasination";
-import { Link, useHistory } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
-import { Loading } from "../Loading";
-
-import { ConfigProvider, notification } from "antd";
-import enUS from "antd/lib/locale/en_US";
-
-import {
-  CheckCircleOutlined,
-  StopOutlined,
-  CloseCircleOutlined,
-} from "@ant-design/icons";
-import ProTable from "@ant-design/pro-table";
-import Delete from "./Delete";
-import SearchForm from "../SearchAdmin";
-
 const PageMovieManager = () => {
   const history = useHistory();
-  const actionRef = useRef();
-  const [searchParams, setSearchParams] = useState(null);
+
   const [modalShow, setModalShow] = useState(false);
-
-  const [dataNguon, setDataNguon] = useState([]);
-  const onSearchSubmit = (params) => {
-    setSearchParams(params);
-  };
-
-  const handleReloadTable = () => {
-    if (actionRef.current) actionRef.current.reload();
-  };
+  const [allMovie, setAllMovie] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesPerPage = 5;
   useEffect(() => {
-    handleReloadTable();
-  }, [searchParams]);
+    const fetchAllMovie = async () => {
+      const response = await axios.get("/getallmovie");
+      const data = await response.data;
+      data.reverse();
+      setAllMovie(data);
+    };
+    fetchAllMovie();
+  }, [setAllMovie]);
 
-  const columns = [
-    { dataIndex: "index", valueType: "indexBorder" },
-    {
-      title: "Tên phim",
-      dataIndex: "moviename",
-    },
-    {
-      title: "Mô tả",
-      dataIndex: "description",
-      width: 200,
-      renderText: (text) => {
-        return <div className="overflow-text ">{text}</div>;
-      },
-    },
-    {
-      dataIndex: "movielink",
-      title: "Link phim",
-      copyable: true,
-      width: 200,
-
-      renderText: (text) => {
-        return (
-          <div className="overlink" data-text={text}>
-            {text}
-          </div>
-        );
-      },
-    },
-    {
-      dataIndex: "actors",
-      title: "Diễn viên",
-      width: 200,
-
-      render: (_, record) => {
-        return (
-          <div className="overlink" data-text={record.actors}>
-            {record.actors.map((e, index) => {
-              if (index > 0) {
-                return `, ${e}`;
-              } else {
-                return e;
-              }
-            })}
-          </div>
-        );
-      },
-    },
-    {
-      dataIndex: "typemovie",
-      title: "Thể loại",
-      render: (_, record) => {
-        return (
-          <div>
-            {record.typemovie.map((e, index) => {
-              if (index > 0) {
-                return `, ${e}`;
-              } else {
-                return e;
-              }
-            })}
-          </div>
-        );
-      },
-    },
-    {
-      dataIndex: "national",
-      title: "Quốc gia",
-    },
-    {
-      //   dataIndex: "",
-      title: "Thao tác",
-      render: (_, record) => {
-        return (
-          <>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <>
-                <Button
-                  className="m-1"
-                  style={{ marginRight: 10 }}
-                  variant="primary"
-                  as={Link}
-                  to={"/" + record._id}
-                >
-                  Sửa
-                </Button>
-
-                <Delete data={record} actionRef={actionRef} />
-              </>
-            </div>
-          </>
-        );
-      },
-    },
-  ];
-  //   useEffect(() => {
-  //     const fetchAllMovie = async () => {
-  //       const response = await axios.get("/getallmovie");
-  //       const data = await response.data;
-  //       data.reverse();
-  //       setAllMovie(data);
-  //     };
-  //     fetchAllMovie();
-  //   }, [setAllMovie]);
+  const indexOFLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOFLastMovie - moviesPerPage;
+  const currentPosts = allMovie.slice(indexOfFirstMovie, indexOFLastMovie);
+  //change page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="all-page-movie">
@@ -198,48 +69,12 @@ const PageMovieManager = () => {
             Danh Sách Phim
           </h1>
 
-          <ConfigProvider locale={enUS}>
-            <ProTable
-              columns={columns}
-              actionRef={actionRef}
-              request={async (params, sorter, filter) => {
-                console.log("-----params--------->", params);
-                console.log("------sorter filter-------->", sorter, filter);
-                console.log("=====search params", searchParams);
-                if (!searchParams) {
-                  const response = await axios.get("/getallmovie");
-                  console.log(response);
-                  setDataNguon(response.data);
-                } else {
-                  let a = [];
-                  const response1 = await axios.get("/searchmovie", {
-                    params: {
-                      key: searchParams?.search,
-                    },
-                  });
-                  console.log(response1);
-
-                  a = response1.data.movies;
-                  console.log(a);
-                  setDataNguon(a);
-                }
-              }}
-              dataSource={dataNguon}
-              rowKey="_id"
-              pagination={{
-                pageSize: 10,
-              }}
-              search={false}
-              editable={false}
-              locale={{ emptyText: "Không có kết quá!" }}
-              toolBarRender={() => (
-                <SearchForm
-                  onSubmit={onSearchSubmit}
-                  placeholderText={"Nhập tên phim"}
-                />
-              )}
-            />
-          </ConfigProvider>
+          <Posts movies={currentPosts} />
+          <Pagination
+            moviesPerPage={moviesPerPage}
+            totalMovies={allMovie.length}
+            paginate={paginate}
+          />
         </div>
       </Container>
     </div>

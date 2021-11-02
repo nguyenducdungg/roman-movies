@@ -104,15 +104,9 @@ const Navbar = () => {
                                 </div>
                                 <div className="navbar-menu-dropdown">
                                     <ul className="menu-dropdown">
-<<<<<<< HEAD
                                         <li className="item-dropdown"><i class="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
                                         <Link to="/type/show"><li className="item-dropdown"><i class="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li></Link>
                                         <li className="item-dropdown"><i class="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li>
-=======
-                                        <li className="item-dropdown"><i className="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
-                                        <li className="item-dropdown"><i className="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li>
-                                        <li className="item-dropdown"><i className="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li>
->>>>>>> 5211c5cbee8bd9acc2a7c2d202949062d72fad90
                                         <li className="item-dropdown" onClick={() => handleLogout()}>
                                             <i className="fas fa-sign-out-alt icon-dropdown"></i>
                                             <Link to="/">

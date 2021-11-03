@@ -1,5 +1,5 @@
 import "./footer.css"
-
+import { Link } from "react-router-dom";
 export default function Footer() {
     return (
         <div className="footer-information">
@@ -15,7 +15,7 @@ export default function Footer() {
                     <li className="footer-li">Có lựa chọn hiện phụ đề song ngữ (tức hiện đồng thời cả tiếng Anh & tiếng Việt), phù hợp với những người muốn học tiếng Anh qua phụ đề phim</li>
                 </ul>
                 <div className="footer-contact">
-                    <a href="#top" className="contact">Liên Hệ</a>
+                    <Link to="/contact"><a href="#top" className="contact">Liên Hệ</a></Link>
                     <a className="footer-btn-fb" href='https://www.facebook.com/DungRomann'><i className="fab fa-facebook-square"></i> Facebook</a>
                 </div>
             </div>

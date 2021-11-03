@@ -65,7 +65,7 @@ const Navbar = () => {
                         <div className="navbar-mobile-left">
                             <ul className="navbar-mobile-list">
                                 <li className="navbar-mobile-li nav-user"><i className="fas fa-user"></i><span className="navbar-mobile-link">{username.username}</span></li>
-                                <li className="navbar-mobile-li"><i className="fas fa-exclamation-circle"></i><span className="navbar-mobile-link">Tài khoản</span></li>
+                                <Link to="/account"><li className="navbar-mobile-li"><i className="fas fa-exclamation-circle"></i><span className="navbar-mobile-link">Tài khoản</span></li></Link>
                                 <Link to="/type/show"><li className="navbar-mobile-li"><i className="fas fa-donate"></i> <span className="navbar-mobile-link">Donate</span></li></Link>
                                 <Link to="/collection"><li className="navbar-mobile-li"><i className="fas fa-film"></i><span className="navbar-mobile-link">Bộ sưu tập</span></li></Link>
                                 <li className="navbar-mobile-li" onClick={() => handleLogout()}><i className="fas fa-sign-out-alt"></i><span className="navbar-mobile-link">Đăng xuất</span></li>
@@ -104,7 +104,7 @@ const Navbar = () => {
                                 </div>
                                 <div className="navbar-menu-dropdown">
                                     <ul className="menu-dropdown">
-                                        <li className="item-dropdown"><i className="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li>
+                                        <Link to="/account"><li className="item-dropdown"><i className="fas fa-user icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Tài Khoản</a></li></Link>
                                         <Link to="/type/show"><li className="item-dropdown"><i className="fas fa-donate icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Donate</a></li></Link>
                                         <Link to="/collection"><li className="item-dropdown"><i className="fas fa-film icon-dropdown"></i><a href="#top" className="a-menu-dropdown">   Bộ sưu tập</a></li></Link>
                                         <li className="item-dropdown" onClick={() => handleLogout()}>

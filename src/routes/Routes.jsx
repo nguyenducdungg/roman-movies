@@ -11,7 +11,7 @@ import HomeAuth from '../pages/HomeAuth';
 import WatchMovie from '../pages/WatchMovie';
 import Search from '../pages/Search';
 import Collection from '../components/Collection/Collection';
-
+import Account from '../components/Account/Account';
 const Routes = () => {
     return (
         <Switch>
@@ -26,6 +26,7 @@ const Routes = () => {
             <Route path="/watchmovie/:id" component={WatchMovie} />
             <Route path="/search" component={Search} />
             <Route path="/collection" component={Collection} />
+            <Route path="/account" component={Account} />
         </Switch>
     )
 }

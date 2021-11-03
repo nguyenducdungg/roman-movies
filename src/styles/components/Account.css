@@ -1,0 +1,26 @@
+.container-account {
+    padding: 3rem 0.8rem;
+}
+.has-text-centered {
+    text-align: center;
+}
+.text-color-7a7a7a {
+    color: #7a7a7a !important;
+}
+.vipMode-account {
+    padding-top: 3rem;
+}
+.btn-vipMode {
+    background-color: #ffdd57;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: center;
+}
+.hr-account {
+    border: none;
+    display: block;
+    height: 4px !important;
+    margin: 1.5rem 0;
+    background-color: #fff;
+}

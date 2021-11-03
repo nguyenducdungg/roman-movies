@@ -22,7 +22,6 @@ const Description = ({ params }) => {
     const createNotification = () => {
         NotificationManager.warning('Máy bạn đã bị hacker tấn công, vui lòng donate cho chúng tôi để bảo mật kịp thời', 'Thông báo khẩn cấp', 5000);
     }
-    console.log(params.id);
     return (
         <>
             {oneMovie ? (
@@ -164,43 +163,3 @@ function Trailer({ value }) {
         </>
     );
 }
-// function MyMovieModal(props) {
-//     return (
-//         <Modal
-//             {...props}
-//             size="lg"
-//             aria-labelledby="contained-modal-title-vcenter"
-//             centered
-//             animation={false}
-//         >
-//             <div className="modal-close" aria-label="close" onClick={props.onHide}>
-//             </div>
-//             <div className="video-responsive">
-//                 <div className="modal-remove"></div>
-//                 <iframe
-//                     width="100%"
-//                     height="50%"
-//                     src={`https://drive.google.com/file/d/${props.values}/preview`}
-//                     frameBorder="0"
-//                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//                     allowFullScreen
-//                     title="Embedded google"
-//                 />
-//                 <div className="modal-remove-popup"></div>
-//             </div>
-//         </Modal>
-//     );
-// }
-// function Movies({ value }) {
-//     const [modalShow, setModalShow] = React.useState(false);
-//     return (
-//         <>
-//             <button className="btn-watch" onClick={() => setModalShow(true)} alt="movies"><i className="fas fa-play icon-watch-movies">Xem Phim</i></button>
-//             <MyMovieModal
-//                 values={value}
-//                 show={modalShow}
-//                 onHide={() => setModalShow(false)}
-//             />
-//         </>
-//     );
-// }

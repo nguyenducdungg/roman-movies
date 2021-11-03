@@ -5,21 +5,11 @@ import { ConfigProvider } from "antd";
 import enUS from "antd/lib/locale/en_US";
 import axios from "../axios";
 import { notification } from "antd";
-import {
-  Container,
+import { Container, Button, Nav, } from "react-bootstrap";
+import { CheckCircleOutlined, StopOutlined } from "@ant-design/icons";
+import ProTable from "@ant-design/pro-table";
 
-  Button,
-
-  Nav,
-} from "react-bootstrap";
-import {
-  CheckCircleOutlined,
-  StopOutlined,
-
-} from "@ant-design/icons";
-import ProTable, { viVNIntl } from "@ant-design/pro-table";
-
-export default () => {
+const UserList = () => {
   const actionRef = useRef();
   const user = JSON.parse(localStorage.getItem("user"));
   const openNotificationSuccessApprove = (message, description, color) => {
@@ -76,7 +66,7 @@ export default () => {
                   );
                   let result = await response.status;
 
-                  if (result == 200) {
+                  if (result === 200) {
                     openNotificationSuccessApprove(
                       "Đã xóa người dùng",
                       "",
@@ -136,3 +126,5 @@ export default () => {
     </div>
   );
 };
+
+export default UserList;

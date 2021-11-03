@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Button, Modal, Alert } from "react-bootstrap";
 
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "../axios";
 import { Loading } from "../Loading";
 import "./index.css";
 import {
   RetweetOutlined,
-  StopOutlined,
-  CloseCircleOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
 import { notification } from "antd";
@@ -22,8 +20,8 @@ function Delete(props) {
   }
   const idMovieDelete = props.data._id;
 
-  const [err, setErr] = useState(null);
-  const [isSucceeded, setIsSucceeded] = useState(false);
+  const [err] = useState(null);
+  const [setIsSucceeded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -37,14 +35,15 @@ function Delete(props) {
       icon: <RetweetOutlined style={{ color: color }} />,
     });
   };
-  const openNotificationFail = (message, description, color) => {
-    notification.open({
-      message: message,
-      description: description,
+  // const openNotificationFail = (message, description, color) => {
+  //   notification.open({
+  //     message: message,
 
-      icon: <StopOutlined style={{ color: color }} />,
-    });
-  };
+  //     description: description,
+
+  //     icon: <StopOutlined style={{ color: color }} />,
+  //   });
+  // };
   const openNotificationWarning = (message, description, color) => {
     notification.open({
       message: message,

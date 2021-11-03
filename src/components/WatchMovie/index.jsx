@@ -58,6 +58,7 @@ const WatchMovie = ({ params }) => {
                             <img src="https://image.tmdb.org/t/p/w342/iy3Q3QcarTjvsE5ZzPCABZLH4mJ.jpg" alt="Ảnh phim" className="img-suggest" />
                         </div>
                     </div>
+                    <br />
 
                 </>
             ) : (

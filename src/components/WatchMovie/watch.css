@@ -1,20 +1,3 @@
-/* .aaaa {
-    margin-bottom: 700px;
-    padding: 0px;
-    overflow: hidden;
-} */
-/* .cccc {
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    height: 75%;
-    width: 100%;
-    position: absolute;
-    top: 70px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-} */
 .video-responsive-movie {
     overflow: hidden;
     padding-bottom: 56.25%;
@@ -44,7 +27,7 @@
     color: #fff;
 }
 .movie-suggestions {
-    display : grid;
+    display: grid;
     grid-auto-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     grid-auto-flow: column;
@@ -87,4 +70,24 @@
     color: #fff;
     border-radius: 5px;
     font-size: 12px;
+}
+
+/* reponsive */
+
+@media (max-width: 1023px) {
+    .watchMovie-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-columns: auto;
+        grid-gap: 40px;
+    }
+    .watchmovie-title {
+        text-align: center;
+    }
+    .movie-suggestions {
+        display: none;
+    }
+    .watchmovie-suggestions {
+        display: none;
+    }
 }

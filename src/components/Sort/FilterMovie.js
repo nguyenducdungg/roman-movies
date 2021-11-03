@@ -15,20 +15,19 @@ const FilterMovie = ({ setMovies }) => {
     national: "",
     year: "",
   });
-  useEffect(async () => {
-    const response = await axios.get("/filter", {
-      params: {
-        typemovie: values.typemovie,
-        national: values.national,
-        year: values.year,
-      },
-    });
-    const data = await response.data;
-    console.log(data);
-
-    setMovies(data);
-
-  }, [values]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("/filter", {
+        params: {
+          typemovie: values.typemovie,
+          national: values.national,
+          year: values.year,
+        },
+      });
+      const data = await response.data;
+      setMovies(data);
+    }; fetchData();
+  }, [values, setMovies]);
 
   const handleChanges = (event) => {
     setValues({
@@ -81,8 +80,12 @@ const FilterMovie = ({ setMovies }) => {
         style={{
           display: "flex",
           alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "12px"
         }}
       >
+        <label>Đặt lại mặc định</label>
         <Button
           variant="ranger"
           onClick={() => {
@@ -91,12 +94,13 @@ const FilterMovie = ({ setMovies }) => {
               national: "",
               year: "",
             });
+
           }}
         >
-          Reset
+          Default
         </Button>
       </div>
-    </div>
+    </div >
   );
 };
 

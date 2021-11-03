@@ -1,8 +1,10 @@
-
-
-
-
-.everyStar{
+.everyStar {
     display: flex;
     flex-direction: row;
+}
+@media (max-width: 1023px) {
+    .everyStar {
+        justify-content: center;
+        align-items: center;
+    }
 }

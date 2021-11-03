@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import axios from "../utils/ApiAxios";
+// import axios from "../utils/ApiAxios";
 import FilterMovie from '../Sort/FilterMovie'
 const AllMovies = () => {
     const [movies, setMovies] = useState(null);
@@ -37,7 +37,7 @@ const AllMovies = () => {
     // }
     let indexSizeMovie = [];
     if (movies) { indexSizeMovie = movies.movies.slice(0, 10); }
-    console.log(movies);
+    // console.log(movies);
     return (
         <><br />
             <FilterMovie setMovies={setMovies} />

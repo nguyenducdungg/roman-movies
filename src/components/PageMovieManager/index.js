@@ -14,17 +14,17 @@ import GenreSelect from "./genreSelect.js";
 import NationalSelect from "./nationalSelect.js";
 
 import { Link, useHistory } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom";
 import { Loading } from "../Loading";
 
-import { ConfigProvider, notification } from "antd";
+import { ConfigProvider } from "antd";
 import enUS from "antd/lib/locale/en_US";
 
-import {
-  CheckCircleOutlined,
-  StopOutlined,
-  CloseCircleOutlined,
-} from "@ant-design/icons";
+// import {
+//   CheckCircleOutlined,
+//   StopOutlined,
+//   CloseCircleOutlined,
+// } from "@ant-design/icons";
 import ProTable from "@ant-design/pro-table";
 import Delete from "./Delete";
 import SearchForm from "../SearchAdmin";

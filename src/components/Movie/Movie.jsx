@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import axios from "../utils/ApiAxios";
-import FilterMovie from '../Sort/FilterMovie'
 
 export default function Movie() {
     const [movies, setMovies] = useState([]);

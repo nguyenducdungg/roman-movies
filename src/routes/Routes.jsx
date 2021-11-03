@@ -10,6 +10,8 @@ import Info from '../pages/Info';
 import HomeAuth from '../pages/HomeAuth';
 import WatchMovie from '../pages/WatchMovie';
 import Search from '../pages/Search';
+import Collection from '../components/Collection/Collection';
+
 const Routes = () => {
     return (
         <Switch>
@@ -23,6 +25,7 @@ const Routes = () => {
             <Route path="/auth" component={HomeAuth} />
             <Route path="/watchmovie/:id" component={WatchMovie} />
             <Route path="/search" component={Search} />
+            <Route path="/collection" component={Collection} />
         </Switch>
     )
 }

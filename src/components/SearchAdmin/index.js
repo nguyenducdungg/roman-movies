@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Modal } from "antd";
+import React from "react";
+// import { Modal } from "antd";
 
 import {
   Button,
-  Card,
-  DatePicker,
   Input,
   Form,
-  InputNumber,
-  Radio,
-  Select,
-  Tooltip,
-  Checkbox,
 } from "antd";
 const FormItem = Form.Item;
-const { Option } = Select;
-const { TextArea } = Input;
+// const { Option } = Select;
+// const { TextArea } = Input;
 
 const SearchForm = (props) => {
   const { placeholderText, onSubmit, type } = props;

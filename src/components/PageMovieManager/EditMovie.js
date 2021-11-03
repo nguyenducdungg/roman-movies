@@ -140,7 +140,7 @@ const EditMovie = () => {
             >
               <Card style={{ overflow: "scroll", height: "90vh" }}>
                 <Card.Header>
-                  <h3>Sửa phim </h3>
+                  <h3 className="header-editmovie">Sửa phim </h3>
                 </Card.Header>
                 <Card.Body>
                   <Form>

@@ -24,7 +24,6 @@
 }
 .footer-li {
     display: list-item;
-    text-align: -webkit-match-parent;
 }
 .footer-contact {
     display: flex;

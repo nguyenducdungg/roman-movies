@@ -6,6 +6,7 @@ const SeriesMovie = () => {
         <div className="background-base">
             <Helmet title="SeriesMovie">
                 <AllMovies />
+                <br />
             </Helmet>
         </div>
     )

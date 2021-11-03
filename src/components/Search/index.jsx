@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // import axios from '../utils/ApiAxios';
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import axios from "../axios";
@@ -22,7 +22,7 @@ const Search = () => {
     const handleSearch = async (event) => {
 
         event.preventDefault();
-        if (values.search == '') {
+        if (values.search === '') {
             alert('Vui lòng nhập tên phim')
             return;
         }
@@ -37,10 +37,11 @@ const Search = () => {
     return (
         <div className="background-search">
             <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Search</Form.Label>
+                <Form.Label><h2>Tìm Kiếm</h2></Form.Label>
                 {err && <Alert variant="danger" style={{ textAlign: "center", alignItems: 'center', height: 10 }}>Vui lòng nhập tên phim ...</Alert>}
-                <Form.Control type="text" placeholder=" Nhập tên phim ..." name="search" value={values.search} onChange={handleChanges} />
-                <Button style={{ marginTop: 10 }} onClick={handleSearch}>Search</Button>
+                <Form.Control type="text" placeholder=" Nhập tên phim ..." name="search" value={values.search} onChange={handleChanges}/>
+                <Button style={{ marginTop: 10 }} onClick={handleSearch}
+                >Search</Button>
             </Form.Group>
             {movieSearch && (
                 <div className="container-home">
@@ -62,6 +63,7 @@ const Search = () => {
                     </div>
                 </div>
             )}
+
         </div>
     )
 }

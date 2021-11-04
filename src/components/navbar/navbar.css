@@ -244,6 +244,11 @@ span {
         overflow-y: scroll;
     }
 }
+@media only screen and (min-width: 1023px) {
+    .navbar-mobile-left {
+        overflow: hidden !important;
+    }
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

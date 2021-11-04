@@ -22,6 +22,12 @@
     font-size: 17px;
     font-weight: 400;
 }
+.scale-movie {
+    transition-duration: 1s;
+}
+.scale-movie:hover {
+    transform : scale(1.05);
+}
 .title-home-watchAll:hover {
     color: #dcf836;
 }

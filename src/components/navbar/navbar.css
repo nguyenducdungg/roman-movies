@@ -35,6 +35,7 @@
     z-index: 100;
     transform: translateX(-150%);
     transition: transform linear 0.4s, opacity 0.4s;
+    overflow-y: hidden;
 }
 
 .fa-bars {
@@ -237,7 +238,11 @@ span {
     .navbar-link-mobile {
         display: block;
     }
-
+}
+@media only screen and (max-width: 812px) {
+    .navbar-mobile-left {
+        overflow-y: scroll;
+    }
 }
 @keyframes fadeIn {
     from {

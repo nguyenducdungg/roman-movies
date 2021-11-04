@@ -18,21 +18,4 @@
     text-align: center;
     margin: 2em 0;
 }
-/* contact */
-.form-contact {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 100%;
-    padding: 0 20%;
-}
-.background-contact {
-    background-color: #363636;
-    border-radius: 15px;
-    max-width: 100%;
-}
-@media (max-width: 1023px) {
-    .form-contact {
-        padding: 0 5%;
-    }
-}
+

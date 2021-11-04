@@ -90,4 +90,7 @@
     .watchmovie-suggestions {
         display: none;
     }
+    .video-responsive-movie {
+        padding-bottom: 90%;
+    }
 }

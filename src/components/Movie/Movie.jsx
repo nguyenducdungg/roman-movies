@@ -28,7 +28,7 @@ export default function Movie() {
                         {indexSizeMovie.map((movie) => {
                             return (
                                 <Link to={"/info/" + movie.moviename + "/" + movie._id} key={movie._id} >
-                                    <div>
+                                    <div className="scale-movie">
 
                                         <img className="img-home" src={movie.imagelink} alt="movies" />
 

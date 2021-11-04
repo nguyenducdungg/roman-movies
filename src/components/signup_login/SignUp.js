@@ -26,12 +26,12 @@ const SignUp = () => {
     const [err, setErr] = useState(null);
     const [isSucceeded, setIsSucceeded] = useState(false);
     const [loading, setLoading] = useState(false);
-    const errEmail = "Email cannot be empty!";
-    const errPassword = "Password cannot be empty!";
-    const errConfirmPassword = "ConfirmPassword cannot be empty!";
-    const errUsername = "Username cannot be empty!";
-    const errPhone = "Password are between 6 and 18 characters long";
-    const errC = "Confirm password not matched!";
+    const errEmail = "Email không được để trống!";
+    const errPassword = "Mật khẩu không được để trống!";
+    const errConfirmPassword = "Vui lòng nhập lại mật khẩu!";
+    const errUsername = "Vui lòng nhập tên của bạn!";
+    const errPhone = "Số điện thoại không đúng!";
+    const errC = "Mật khẩu không khớp!";
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -106,7 +106,7 @@ const SignUp = () => {
                             </Form.Group>
                             <Form.Group className="mb-1" controlId="phone">
                                 <Form.Label>Số điện thoại</Form.Label>
-                                <Form.Control type="text" placeholder="Nhập số điện thoại của bạn ...   " name="phone" onChange={handleChanges} value={values.phone} />
+                                <Form.Control type="number" placeholder="Nhập số điện thoại của bạn ...   " name="phone" onChange={handleChanges} value={values.phone} />
                             </Form.Group>
 
                             <div className=" mt-3   d-grid gap-2">

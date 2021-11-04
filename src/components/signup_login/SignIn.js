@@ -53,7 +53,7 @@ const SignIn = () => {
           <>
             {err && (
               <Alert variant="danger" style={{ textAlign: "center" }}>
-                {err}
+                Tài khoản hoặc mật khẩu không đúng
               </Alert>
             )}
             <Form onSubmit={handleSubmit}>

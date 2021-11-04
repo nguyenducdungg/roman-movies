@@ -77,7 +77,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <Link to="/search">
-                            <span className="icon-search-navbar navbar-link-mobile"><i className="fas fa-search"></i> Tìm Kiếm</span>
+                            <span className="icon-search-navbar navbar-link-mobile"><i className="fas fa-search"></i></span>
                         </Link>
                         <div className="navbar-pc">
                             <div className="navbar-start">
@@ -156,7 +156,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <Link to="/search">
-                            <span className="icon-search-navbar navbar-link-mobile"><i className="fas fa-search"></i> Tìm Kiếm</span>
+                            <span className="icon-search-navbar navbar-link-mobile"><i className="fas fa-search"></i></span>
                         </Link>
                         <div className="navbar-pc">
                             <div className="navbar-start">

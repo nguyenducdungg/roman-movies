@@ -1,65 +1,65 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 // import axios from "../utils/ApiAxios";
-import FilterMovie from '../Sort/FilterMovie'
+import FilterMovie from '../Sort/FilterMovie';
+import ReactPaginate from "react-paginate";
 const AllMovies = () => {
-    const [movies, setMovies] = useState(null);
+    var [movies, setMovies] = useState(null);
 
-    // useEffect(() => {
-    //     const fetchMovie = async () => {
-    //         const response = await axios.get("/getallmovie");
-    //         const data = await response.data;
-    //         setMovies(data);
+    const [pageNumber, setPageNumber] = useState(0);
+    const moviePerPage = 10;
+    const pageVisted = pageNumber * moviePerPage
 
-    //     };
-    //     fetchMovie();
-    // }, []);
-    // const [allMovie, setAllMovie] = useState([]);
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const moviesPerPage = 5
-    // useEffect(() => {
-    //     const fetchAllMovie = async () => {
-    //         const response = await axios.get("/getallmovie");
-    //         const data = await response.data;
-    //         data.reverse();
-    //         setAllMovie(data);
 
-    //     };
-    //     fetchAllMovie();
-    // }, [setAllMovie]);
+    if (movies) {
+        var displayMovie = movies.movies
+            .slice(pageVisted, pageVisted + moviePerPage)
+            .map(movie => {
+                return (
+                    <Link to={"/info/" + movie.moviename + "/" + movie._id} key={movie._id} >
+                        <div className="scale-movie">
+                            <img className="img-home" src={movie.imagelink} alt="movies" />
+                            <div className="main-home-title-movie">
+                                <h3 className="movieName" >{movie.moviename}</h3>
+                                <h3 className="movieNameVn">{movie.movienamevn}</h3>
+                            </div>
+                        </div>
+                    </Link>
+                )
+            });
+        var pageCount = Math.ceil(movies.totalMovie / moviePerPage)
+        var changePage = ({ selected }) => {
+            setPageNumber(selected)
+        }
+    }
 
-    // const indexOFLastMovie = currentPage * moviesPerPage;
-    // const indexOfFirstMovie = indexOFLastMovie - moviesPerPage;
-    // const currentPosts = allMovie.slice(indexOfFirstMovie, indexOFLastMovie);
-    // //change page
-    // const paginate = (pageNumber) => {
-    //     setCurrentPage(pageNumber)
-    // }
-    let indexSizeMovie = [];
-    if (movies) { indexSizeMovie = movies.movies.slice(0, 10); }
+    // let indexSizeMovie = [];
+    // if (movies) { indexSizeMovie = movies.movies.slice(0, 10); }
     // console.log(movies);
     return (
-        <><br />
+        <>
+            <br />
             <FilterMovie setMovies={setMovies} />
             <br />
             {movies ? (
                 <div className="container-home">
 
                     <div className="main-home">
-                        {indexSizeMovie.map((movie) => {
-                            return (
-                                <Link to={"/info/" + movie.moviename + "/" + movie._id} key={movie._id} >
-                                    <div className="scale-movie">
-                                        <img className="img-home" src={movie.imagelink} alt="movies" />
-                                        <div className="main-home-title-movie">
-                                            <h3 className="movieName" >{movie.moviename}</h3>
-                                            <h3 className="movieNameVn">{movie.movienamevn}</h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            )
-                        })}
+                        {displayMovie}
                     </div>
+                    <br />
+                    <br />
+                    <ReactPaginate
+                        previousLabel={"Previous"}
+                        nextLabel={"Next"}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        containerClassName={"paginationBtn"}
+                        previousLinkClassName={"previousBtn"}
+                        nextLinkClassName={"nextBtn"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}
+                    />
                 </div>
             ) : (
                 <>

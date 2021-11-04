@@ -238,6 +238,9 @@ span {
     .navbar-link-mobile {
         display: block;
     }
+    .fa-search {
+        font-size: 20px;
+    }
 }
 @media only screen and (max-width: 812px) {
     .navbar-mobile-left {

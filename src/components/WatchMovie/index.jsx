@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './watch.css'
 import InfoApi from "../utils/InfoApi";
 import Rate from "../Rate/Rating/Rate"
+import Comment from '../Comment/Comment'
 const WatchMovie = ({ params }) => {
     const [oneMovie, setOneMovie] = useState();
     useEffect(() => {
@@ -43,14 +44,16 @@ const WatchMovie = ({ params }) => {
                         </div>
                         <div className="comment-session">
                             <h2 className="text-comment"><i className="fas fa-comments"></i> Comment</h2>
-                            <form action="" className="form-comment">
+                            {/* <form action="" className="form-comment">
                                 <div className="input-form">
                                     <textarea className="textarea" placeholder="Nhập bình luận..." rows="2" required name="content"></textarea>
                                 </div>
                                 <div className="btn-send">
                                     <button className="btn-send-comment" type="submit">Send</button>
                                 </div>
-                            </form>
+                            </form> */}
+                            {/* <div class="fb-comments" data-href="http://localhost:3000/" data-width="300" data-numposts="5"></div> */}
+                            <Comment />
                         </div>
                         <div className="movie-suggestions">
                             <img src="https://image.tmdb.org/t/p/w342/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg" alt="Ảnh phim" className="img-suggest" />

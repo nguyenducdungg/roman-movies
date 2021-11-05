@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Rate.css";
 import { FaStar } from "react-icons/fa";
 import axios from "../../axios";
@@ -16,24 +16,44 @@ const colors = {
 const Rate = ({ id, size }) => {
     const user = JSON.parse(localStorage.getItem("user"));
 
+
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(1)
+
+
+    useEffect(async () => {
+        const res = await axios.get(`/getratebymovie/${id}`)
+        console.log(res.data);
+        let array = res.data.filter((el) => {
+            return el.user == user._id
+        })
+        if (array.length > 0) { setCurrentValue(array[0].rate) }
+
+    })
+
+
     const handleClick = async (value) => {
+        console.log(value);
         setCurrentValue(value)
         if (!user) {
             NotificationManager.warning('để có thể đánh giá sao', 'Bạn cần đăng nhập', 3000);
             setCurrentValue(0);
             return;
         }
-        await axios.post("/createrate", { "rate": currentValue, "user": `${user._id}`, "movie": `${id}` },
-            {
-                headers: {
-                    "token": `${user.token}`
-                }
-            })
-        NotificationManager.success('đánh giá của bạn', 'Cảm ơn về', 3000);
+        try {
+            await axios.post("/createrate", { "rate": value, "user": `${user._id}`, "movie": `${id}` },
+                {
+                    headers: {
+                        "token": `${user.token}`
+                    }
+                })
+            NotificationManager.success('đánh giá của bạn', 'Cảm ơn về', 3000);
+        } catch (err) {
+            NotificationManager.warning(err.response.data.error, "", 3000)
+        } finally {
 
+        }
     }
 
     const handleMouseOver = newHoverValue => {

@@ -22,19 +22,19 @@ const Rate = ({ id, size }) => {
     const stars = Array(5).fill(1)
 
 
-    useEffect(async () => {
-        const res = await axios.get(`/getratebymovie/${id}`)
-        console.log(res.data);
-        let array = res.data.filter((el) => {
-            return el.user == user._id
-        })
-        if (array.length > 0) { setCurrentValue(array[0].rate) }
-
-    })
+    useEffect(() => {
+        const rate = async () => {
+            const res = await axios.get(`/getratebymovie/${id}`)
+            let array = res.data.filter((el) => {
+                return el.user === user._id
+            })
+            if (array.length > 0) { setCurrentValue(array[0].rate) }
+        }
+        rate()
+    }, [id, user._id])
 
 
     const handleClick = async (value) => {
-        console.log(value);
         setCurrentValue(value)
         if (!user) {
             NotificationManager.warning('để có thể đánh giá sao', 'Bạn cần đăng nhập', 3000);
@@ -50,7 +50,7 @@ const Rate = ({ id, size }) => {
                 })
             NotificationManager.success('đánh giá của bạn', 'Cảm ơn về', 3000);
         } catch (err) {
-            NotificationManager.warning(err.response.data.error, "", 3000)
+            NotificationManager.warning(`${err.response.data.error}`,'', 3000)
         } finally {
 
         }

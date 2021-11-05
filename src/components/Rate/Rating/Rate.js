@@ -26,7 +26,7 @@ const Rate = ({ id, size }) => {
             setCurrentValue(0);
             return;
         }
-        await axios.post("/ceaterate", { "rate": currentValue, "user": `${user._id}`, "movie": `${id}` },
+        await axios.post("/createrate", { "rate": currentValue, "user": `${user._id}`, "movie": `${id}` },
             {
                 headers: {
                     "token": `${user.token}`

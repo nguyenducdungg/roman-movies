@@ -66,7 +66,8 @@ const SignUp = () => {
             await axios.post("/register", values);
             setIsSucceeded(true);
         } catch (err) {
-            setErr(err.response.data);
+            console.log(err.response.data);
+            setErr(err.response.data.error);
         } finally {
             setLoading(false);
         }

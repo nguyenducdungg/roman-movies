@@ -33,11 +33,11 @@ const SignIn = () => {
     try {
       const res = await axios.post("/login", values);
       localStorage.setItem("user", JSON.stringify(res.data));
-
       setAuthUser(res.data);
       history.push("/");
     } catch (err) {
-      setErr(err.message);
+      console.log(err);
+      setErr(err.response.data.notification);
     } finally {
       setLoading(false);
     }
@@ -53,7 +53,7 @@ const SignIn = () => {
           <>
             {err && (
               <Alert variant="danger" style={{ textAlign: "center" }}>
-                Tài khoản hoặc mật khẩu không đúng
+                {err}
               </Alert>
             )}
             <Form onSubmit={handleSubmit}>

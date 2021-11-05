@@ -12,9 +12,7 @@ const Comment = () => {
         window.FB.XFBML.parse();
     }
     return (
-        <div>
-            <div class="fb-comments" data-href="http://localhost:3000" data-width="200" data-numposts="5"></div>
-        </div>
+        <div class="fb-comments" data-href="http://localhost:3000/watchmovie/617b8e89c3f5750016080233" data-width="200" data-numposts="5"></div>
     )
 }
 

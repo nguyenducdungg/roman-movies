@@ -36,7 +36,6 @@ const SignIn = () => {
       setAuthUser(res.data);
       history.push("/");
     } catch (err) {
-      console.log(err);
       setErr(err.response.data.notification);
     } finally {
       setLoading(false);

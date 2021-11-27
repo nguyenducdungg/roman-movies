@@ -90,7 +90,7 @@ const UserList = () => {
   ];
 
   return (
-    <div style={{ height: "fit-content" }} className="all-page-movie">
+    <div style={{ height: "100vh" }} className="all-page-movie">
       <Container className=" pt-3  d-flex justify-content-between">
         <Nav className="backToAdmin">
           <Link as={Link} to="/">

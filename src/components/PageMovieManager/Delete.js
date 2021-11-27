@@ -20,8 +20,8 @@ function Delete(props) {
   }
   const idMovieDelete = props.data._id;
 
-  const [err] = useState(null);
-  const [setIsSucceeded] = useState(false);
+
+
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -54,7 +54,7 @@ function Delete(props) {
   };
   const handleDelete = async () => {
     setLoading(true);
-    setIsSucceeded(false);
+
     setShow(false);
     try {
       await axios.delete("/deletemovie/" + idMovieDelete, {
@@ -63,7 +63,7 @@ function Delete(props) {
           token: `${user.token}`,
         },
       });
-      setIsSucceeded(true);
+      setLoading(false);
       openNotificationDeleteSuccess(
         "Phim đã được xóa thành công!",
         ``,
@@ -96,7 +96,7 @@ function Delete(props) {
           <Loading text="Đang xóa phim..."></Loading>
         ) : (
           <>
-            {err && <Alert variant="danger">{err}</Alert>}
+
 
             <Modal.Body>
               Bạn có chắc chắn xóa phim "{props.data.moviename}" khỏi danh sách!

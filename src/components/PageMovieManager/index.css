@@ -1,6 +1,7 @@
 .all-page-movie {
     background-color: #f0f2f5;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 .body-page-manager {
